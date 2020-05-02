@@ -1,0 +1,36 @@
+{{ define "head" }}
+{{ partial "head" . }}
+{{ end }}
+
+{{ define "nav" }}
+{{ partial "nav" . }}
+{{ end }}
+
+{{ define "main" }}
+<main>
+    <div class="container pt-3">
+        <h2 class="text-center">截图存档</h2>
+        <div class="row">
+            {{ range .Site.Data.scshot.screenshots }}
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <a href="https://cdn.jsdelivr.net/gh/amzrk2/poal-scshot/origin/{{ .img }}.{{ .format }}" target="_blank"><img src="https://cdn.jsdelivr.net/gh/amzrk2/poal-jsdelivr@1.1.0/lazyload/dsrca_loading_480x270.svg" data-src="https://cdn.jsdelivr.net/gh/amzrk2/poal-scshot/thumbnail/{{ .img }}.webp" class="lazyload card-img-top rounded mb-3"></a>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ .date }}</h6>
+                        <p class="card-text">{{ .des }}</p>
+                    </div>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</main>
+{{ end }}
+
+{{ define "footer" }}
+{{ partial "footer" . }}
+{{ end }}
+
+{{ define "script" }}
+{{ partial "script" . }}
+{{ end }}

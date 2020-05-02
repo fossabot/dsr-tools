@@ -1,0 +1,5 @@
+baseURL = "https://amzrk2.cc"
+languageCode = "zh-hans"
+title = "DSRCA"
+disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
+enableRobotsTXT = true

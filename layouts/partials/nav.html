@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link{{ if eq .RelPermalink "/" }} active{{ end }}" href="/"><i class="fas fa-home"></i> 主页</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link{{ if eq .RelPermalink "/scshot/" }} active{{ end }}" href="/scshot/"><i class="fas fa-images"></i> 截图</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle{{ if eq .Section "project" }} active{{ end }}" href="javascript:void(0);" data-toggle="dropdown"><i class="fab fa-github"></i> 项目</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="https://github.com/amzrk2/hugo-theme-fuji" target="_blank">Fuji - Hugo 主题</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle{{ if eq .Section "game" }} active{{ end }}" href="javascript:void(0);" data-toggle="dropdown"><i class="fab fa-steam"></i> 游戏</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/minecraft/">Minecraft - DSR 整合包</a>
+                    <a class="dropdown-item" href="/game/ffxiv/">FFXIV - 狩猎时间表</a>
+                    <a class="dropdown-item" href="/kiseki/">轨迹系列 - 目录</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link{{ if eq .RelPermalink "/about/" }} active{{ end }}" href="/about/"><i class="fas fa-info-circle"></i> 关于</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://blog.amzrk2.cc/" target="_blank"><i class="fas fa-blog"></i> 博客</a>
+            </li>
+        </ul>
+    </div>
+</nav>

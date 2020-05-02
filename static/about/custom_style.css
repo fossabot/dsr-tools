@@ -1,0 +1,8 @@
+body {
+    padding-top: 3.5rem;
+}
+
+.about-bg {
+    background: url(https://cdn.jsdelivr.net/gh/amzrk2/amzrk2.github.io/about/img/bg.webp) no-repeat center center;
+    background-size: cover;
+}

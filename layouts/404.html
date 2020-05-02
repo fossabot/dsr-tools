@@ -1,0 +1,39 @@
+{{ define "head" }}
+{{ partial "head" . }}
+{{ end }}
+
+{{ define "nav" }}
+{{ partial "nav" . }}
+{{ end }}
+
+{{ define "main" }}
+<main role="main">
+    <div class="container text-center my-5">
+        <a class="display-3 text-dark">404</a>
+        <p class="h2"><i class="fas fa-frown"></i> PAGE NOT FOUND <i class="fas fa-frown"></i></p>
+        <p class="h5"><span class="text-danger" id="sec">8</span> 秒后自动返回<a href="/">主页</a></p>
+    </div>
+</main>
+{{ end }}
+
+{{ define "footer" }}
+{{ partial "footer" . }}
+{{ end }}
+
+{{ define "script" }}
+<script>
+    $(function () {
+        setTimeout("Go();", 1000);
+    });
+
+    function Go() {
+        var sec = $("#sec").text();
+        $("#sec").text(--sec);
+        if (sec > 0) {
+            setTimeout("Go();", 1000);
+        } else {
+            window.location.href = "/";
+        }
+    }
+</script>
+{{ end }}

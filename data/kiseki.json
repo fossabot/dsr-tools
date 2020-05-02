@@ -1,0 +1,221 @@
+{
+    "sora": [{
+            "img": "01-07-sorafcevo.webp",
+            "name": "空之轨迹 FC Evolution",
+            "meta": "2015.6 - PSV",
+            "des": "完全进化版，游戏画面精修，立绘和 CG 高清重制，补充全语音配音。",
+            "link1": "http://www.sora-evo-fc.com/",
+            "link2": "#"
+        },
+        {
+            "img": "01-08-sorascevo.webp",
+            "name": "空之轨迹 SC Evolution",
+            "meta": "2015.12 - PSV",
+            "des": "完全进化版，游戏画面精修，立绘和 CG 高清重制，补充全语音配音。",
+            "link1": "http://www.sora-evo-sc.com/",
+            "link2": "#"
+        },
+        {
+            "img": "01-09-sora3rdevo.webp",
+            "name": "空之轨迹 the 3rd Evolution",
+            "meta": "2016.7 - PSV",
+            "des": "完全进化版，游戏画面精修，立绘和 CG 高清重制，补充全语音配音。",
+            "link1": "http://www.sora-evo-3rd.com/",
+            "link2": "#"
+        },
+        {
+            "img": "01-04-sorafckai.webp",
+            "name": "空之轨迹 FC 改 HD EDITION",
+            "meta": "2012.12 - PS3",
+            "des": "2012 年 Falcom 宣布空之轨迹系列移植至 PS3 平台，并对画面进行高清重制。",
+            "link1": "https://www.falcom.co.jp/sorafc_psp/hd/",
+            "link2": "#"
+        },
+        {
+            "img": "01-05-sorasckai.webp",
+            "name": "空之轨迹 SC 改 HD EDITION",
+            "meta": "2013.4 - PS3",
+            "des": "2012 年 Falcom 宣布空之轨迹系列移植至 PS3 平台，并对画面进行高清重制。",
+            "link1": "https://www.falcom.co.jp/sorasc_psp/hd/",
+            "link2": "#"
+        },
+        {
+            "img": "01-06-sora3rdkai.webp",
+            "name": "空之轨迹 the 3rd 改 HD EDITION",
+            "meta": "2013.6 - PS3",
+            "des": "2012 年 Falcom 宣布空之轨迹系列移植至 PS3 平台，并对画面进行高清重制。",
+            "link1": "https://www.falcom.co.jp/sora3rd_psp/hd/",
+            "link2": "#"
+        },
+        {
+            "img": "01-01-sorafc.webp",
+            "name": "空之轨迹 FC",
+            "meta": "2004.6 - PC | 2006.9 - PSP",
+            "des": "英雄传说系列第六部作品，轨迹系列第一部作品，首发于 PC 平台。",
+            "link1": "https://www.falcom.co.jp/ed6/",
+            "link2": "#"
+        },
+        {
+            "img": "01-02-sorasc.webp",
+            "name": "空之轨迹 SC",
+            "meta": "2006.3 - PC | 2007.9 - PSP",
+            "des": "本作揭露了前作最后展现的巨大阴谋，并结束了利贝尔王国篇的故事。",
+            "link1": "https://www.falcom.co.jp/ed6_sc/",
+            "link2": "#"
+        },
+        {
+            "img": "01-06-sora3rdkai.webp",
+            "name": "空之轨迹 the 3rd",
+            "meta": "2007.6 - PC | 2008.7 - PSP",
+            "des": "SC 完结半年后的新事件与后日谈，同时也是为下一部英雄传说所布局的作品。",
+            "link1": "https://www.falcom.co.jp/sora_3rd/",
+            "link2": "#"
+        }
+    ],
+    "zeroao": [{
+            "img": "02-05-zerokai.webp",
+            "name": "零之轨迹 改",
+            "meta": "2020.4 - PS4",
+            "des": "强化移植版，游戏画面音乐高质化，全语音对应配音，提供高速模式等。",
+            "link1": "http://www.zero-full.com/",
+            "link2": "#"
+        },
+        {
+            "img": "02-06-aokai.webp",
+            "name": "碧之轨迹 改",
+            "meta": "2020.5 - PS4",
+            "des": "强化移植版，游戏画面音乐高质化，全语音对应配音，提供高速模式等。",
+            "link1": "http://www.ao-full.com/",
+            "link2": "#"
+        },
+        {
+            "img": "02-03-zeroevo.webp",
+            "name": "零之轨迹 Evolution",
+            "meta": "2012.10 - PSV",
+            "des": "完全进化版，游戏画面精修，立绘和 CG 高清重制，补充全语音配音。",
+            "link1": "http://www.zero-full.com/",
+            "link2": "#"
+        },
+        {
+            "img": "02-04-aoevo.webp",
+            "name": "碧之轨迹 Evolution",
+            "meta": "2014.6 - PSV",
+            "des": "完全进化版，游戏画面精修，立绘和 CG 高清重制，补充全语音配音。",
+            "link1": "http://www.ao-full.com/",
+            "link2": "#"
+        },
+        {
+            "img": "02-01-zero.webp",
+            "name": "零之轨迹",
+            "meta": "2010.9 - PSP",
+            "des": "这是一个描绘想要跨越阻碍的年轻人们，以及生活在大都市的光与暗之间的人们的故事。",
+            "link1": "https://www.falcom.co.jp/zero_psp/",
+            "link2": "#"
+        },
+        {
+            "img": "02-02-ao.webp",
+            "name": "碧之轨迹",
+            "meta": "2011.9 - PSP",
+            "des": "众多势力怀抱不同的目的，往克洛斯贝尔聚集，掀起一场席卷全大陆的动乱。",
+            "link1": "https://www.falcom.co.jp/ao_psp/",
+            "link2": "#"
+        },
+        {
+            "img": "02-01-zero.webp",
+            "name": "零之轨迹 Windows",
+            "meta": "2011.8 - PC",
+            "des": "欢乐百世移植 PC 并高清化，仅提供简繁中文版本，于 2013 年日文化重新在日发售。",
+            "link1": "http://joyoland.com/Shop/Item?id=48f3066b-6a67-4ad1-9531-85b02ba50ddf",
+            "link2": "#"
+        },
+        {
+            "img": "02-02-ao.webp",
+            "name": "碧之轨迹 Windows",
+            "meta": "2013.3 - PC",
+            "des": "欢乐百世移植 PC 并高清化，仅提供简繁中文版本，于 2013 年日文化重新在日发售。",
+            "link1": "http://joyoland.com/Shop/Item?id=3e4066f9-22ab-41ec-a6d1-1a948f7c3279",
+            "link2": "#"
+        }
+    ],
+    "sen": [{
+            "img": "03-03-sen3.webp",
+            "name": "闪之轨迹 III",
+            "meta": "2017.9 - PS4 | 2020.3 - NS",
+            "des": "轨迹系列 PS4 平台试水，内战的终结，以黎恩为中心的英雄们的全新物语。",
+            "link1": "https://www.falcom.co.jp/sen3/",
+            "link2": "#"
+        },
+        {
+            "img": "03-04-sen4.webp",
+            "name": "闪之轨迹 IV",
+            "meta": "2018.9 - PS4",
+            "des": "为了解开围绕在帝国的各种谜团，新旧 \"VII班\"、轨迹系列角色总集结。",
+            "link1": "https://www.falcom.co.jp/sen2/",
+            "link2": "#"
+        },
+        {
+            "img": "03-05-sen1kai.webp",
+            "name": "闪之轨迹 I 改",
+            "meta": "2018.3 - PS4",
+            "des": "闪之轨迹初代的 PS4 优化移植版，画面提升，支持高速模式和存档继承。",
+            "link1": "https://www.falcom.co.jp/sen/kai/",
+            "link2": "#"
+        },
+        {
+            "img": "03-06-sen2kai.webp",
+            "name": "闪之轨迹 II 改",
+            "meta": "2018.4 - PS4",
+            "des": "闪之轨迹第二作的 PS4 优化移植版，画面提升，支持高速模式和存档继承。",
+            "link1": "https://www.falcom.co.jp/sen2/kai/",
+            "link2": "#"
+        },
+        {
+            "img": "03-01-sen1.webp",
+            "name": "闪之轨迹",
+            "meta": "2013.9 - PS3 PSV",
+            "des": "Falcom 第一次同步开发的双平台游戏。主题是 \"与所有的同伴一起达成某些事\"。",
+            "link1": "https://www.falcom.co.jp/sen/",
+            "link2": "#"
+        },
+        {
+            "img": "03-02-sen2.webp",
+            "name": "闪之轨迹 II",
+            "meta": "2014.9 - PS3 PSV",
+            "des": "轨迹系列十周年的纪念作，以外传形式收录了前作零碧轨的部分后续故事。",
+            "link1": "https://www.falcom.co.jp/sen2/",
+            "link2": "#"
+        },
+        {
+            "img": "03-05-sen1kai.webp",
+            "name": "闪之轨迹 Windows",
+            "meta": "2017.8 - PC",
+            "des": "XSEED 移植 PC，仅提供英文版本，于 2019 年日文化重新在日发售。",
+            "link1": "http://www.trailsofcoldsteel.com/",
+            "link2": "#"
+        },
+        {
+            "img": "03-07-sen2pc.webp",
+            "name": "闪之轨迹 II Windows",
+            "meta": "2018.02 - PC",
+            "des": "XSEED 移植 PC，仅提供英文版本，于 2019 年日文化重新在日发售。",
+            "link1": "http://www.trailsofcoldsteel.com/cs2/",
+            "link2": "#"
+        },
+        {
+            "img": "03-03-sen3.webp",
+            "name": "闪之轨迹 III Windows",
+            "meta": "2020.3 - PC",
+            "des": "NIS America 移植 PC，同时提供日语、英语、法语支持，Steam 发售。",
+            "link1": "https://thelegendofheroes.com/tocs3/",
+            "link2": "#"
+        }
+    ],
+    "hajimari": [{
+        "img": "04-01-hajimari_ntf.webp",
+        "name": "创之轨迹",
+        "meta": "2020 夏 - PS4",
+        "des": "在英雄们跨越灾难的塞姆利亚土地，交织出了新的因果，故事开始向着\"终点\"推进。",
+        "link1": "https://www.falcom.co.jp/hajimari/",
+        "link2": "#"
+    }]
+}

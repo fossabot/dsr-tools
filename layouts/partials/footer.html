@@ -1,0 +1,13 @@
+<footer class="footer mt-auto py-2 bg-dark">
+    <div class="container-fluid text-center text-white-50">
+        <span>
+            <i class="fas fa-copyright"></i> {{ now.Format "2006" }} <a href="https://twitter.com/" target="_blank">DSRKafuU</a>
+        </span>
+        {{ if .Params.exCopyright }}
+        <br />
+        <span>
+            <i class="fas fa-copyright"></i> {{ .Params.exCopyright }}
+        </span>
+        {{ end }}
+    </div>
+</footer>

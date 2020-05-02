@@ -1,0 +1,51 @@
+/*!
+ * Bootstrap Modification CSS v1.0.0
+ * Copyright 2019-2020 DSRKafuU (amzrk2)
+ * Licensed under GPLv3 (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+// color
+$blue:    #8aa2d3; // https://irocore.com/aofuji/
+$indigo:  #3b469b; // https://irocore.com/aomurasaki/
+$purple:  #8f82bc; // https://irocore.com/fujimurasaki/
+$pink:    #e83e8c;
+$red:     #dc3545;
+$orange:  #fd7e14;
+$yellow:  #ffc107;
+$green:   #28a745;
+$teal:    #20c997;
+$cyan:    #17a2b8;
+
+$secondary: $purple;
+$light: #e9ecef;
+$dark: #495057;
+
+// font
+$enable-responsive-font-sizes: true;
+
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "Helvetica", "Arial", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+$font-family-monospace: "Cascadia Code", "SF Mono", "Fira Code", "Consolas", $font-family-sans-serif;
+
+$font-weight-normal: 400;
+$font-weight-bold: 600;
+
+// footer link
+footer {
+    a {
+        color: rgba(#FFF, .50);
+    }
+
+    a:hover {
+        color: rgba(#FFF, .75);
+        text-decoration: none;
+    }
+}
+
+// h color remap
+h1, h2, h3, h4, h5, h6 {
+    color: $blue;
+    margin-bottom: 1rem !important;
+}
+
+// bootstrap
+@import "bootstrap/scss/bootstrap";

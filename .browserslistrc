@@ -1,0 +1,5 @@
+# https://github.com/browserslist/browserslist#readme
+
+defaults
+Chrome >= 70
+Firefox >= 60
