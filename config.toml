@@ -3,3 +3,4 @@ languageCode = "zh-hans"
 title = "DSRCA"
 disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
 enableRobotsTXT = true
+googleAnalytics = "UA-146011233-1"

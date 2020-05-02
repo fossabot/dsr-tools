@@ -13,6 +13,8 @@
     <meta name="keywords" content="{{ delimit . ", " }}">
     {{ end }}
 
+    {{ template "_internal/google_analytics_async.html" . }}
+
     <!-- favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.jsdelivr.net/gh/amzrk2/poal-jsdelivr@1.2.0/favicons/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/amzrk2/poal-jsdelivr@1.2.0/favicons/favicon-32x32.png" />
