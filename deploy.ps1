@@ -10,7 +10,7 @@ hugo
 
 Write-Host Ready to fetching dsrca.github.io...
 Pause
-Set-Location ..\dsrca.github.io
+Set-Location ..\amzrk2.github.io
 git pull origin
 Get-ChildItem -Exclude .git, .gitattributes, .gitignore, CNAME, LICENSE | Remove-Item -Recurse -Force
 Get-ChildItem ..\dsrca-source\public | Copy-Item -Force -Recurse
