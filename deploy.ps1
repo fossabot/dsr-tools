@@ -8,7 +8,7 @@ Pause
 Remove-Item public, resources -Force -Recurse
 hugo
 
-Write-Host Ready to fetching dsrca.github.io...
+Write-Host Ready to fetching amzrk2.github.io...
 Pause
 Set-Location ..\amzrk2.github.io
 git pull origin
