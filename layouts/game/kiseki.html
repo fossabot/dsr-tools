@@ -1,0 +1,141 @@
+{{ define "head" }}
+{{ partial "head" . }}
+{{ end }}
+
+{{ define "nav" }}
+{{ partial "nav" . }}
+{{ end }}
+
+{{ define "main" }}
+<main>
+    <div class="container py-3">
+        <div class="accordion mb-3" id="recommend">
+            <div class="card">
+                <div class="card-header">
+                    <button class="btn btn-secondary btn-block" type="button" data-toggle="collapse" data-target="#recommendDetail">
+                        给中国大陆玩家的入坑推荐指南
+                    </button>
+                </div>
+                <div id="recommendDetail" class="collapse" data-parent="#recommend">
+                    <div class="card-body">
+                        空轨 FC - PSV EVO 繁中版，Steam 购买 PC 版并打上民间中文和语音包补丁亦可，娱乐通中文版或 PSP 汉化版亦可。<br />
+                        空轨 SC - PSV EVO 繁中版 (难买到)，娱乐通 PC 中文版打上语音补丁或 PSP 汉化版亦可。<br />
+                        空轨 3rd - PSV EVO 繁中版 (难买到)，娱乐通 PC 中文版打上语音补丁或 PSP 汉化版亦可。<br />
+                        零轨 - 欢乐百世或 Wegame 购买 PC 版打上语音补丁或 PSP 汉化版。<br />
+                        碧轨 - 欢乐百世或 Wegame 购买 PC 版打上语音补丁或 PSP 汉化版。<br />
+                        闪 1 - 闪 1+2 改 PS4 繁中版，Steam 购买 PC 版并打上民间中文和语音包补丁亦可。<br />
+                        闪 2 - 闪 1+2 改 PS4 繁中版，Steam 购买 PC 版并打上民间中文和语音包补丁亦可。<br />
+                        闪 3 - PS4 繁中版。<br />
+                        闪 4 - PS4 繁中版。
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <!-- Tabs -->
+            <div class="card-header text-center">
+                <ul class="nav nav-pills card-header-pills">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="pill" href="#kiseki-sora">空之轨迹</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" href="#kiseki-zeroao">零之轨迹 | 碧之轨迹</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" href="#kiseki-sen">闪之轨迹</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" href="#kiseki-hajimari">创之轨迹</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Contents -->
+            <div class="card-body tab-content pb-0">
+                <div class="tab-pane fade show active" id="kiseki-sora">
+                    <div class="row">
+                        {{ range .Site.Data.kiseki.sora }}
+                        <div class="col-md-4">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <img src="https://cdn.jsdelivr.net/gh/amzrk2/poal-jsdelivr@1.1.0/lazyload/dsrca_loading_480x270.svg" data-src="https://cdn.jsdelivr.net/gh/amzrk2/poal-jsdelivr@1.5.0/kiseki/img/{{ .img }}" class="lazyload card-img-top rounded mb-3" />
+                                    <h5 class="card-title">{{ .name }}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{ .meta }}</h6>
+                                    <p class="card-text">{{ .des }}</p>
+                                    <a href="{{ .link1 }}" target="_blank" class="card-link">官方网站</a>
+                                    <a href="{{ .link2 }}" target="_blank" class="card-link">相关链接</a>
+                                </div>
+                            </div>
+                        </div>
+                        {{ end }}
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="kiseki-zeroao">
+                    <div class="row">
+                        {{ range .Site.Data.kiseki.zeroao }}
+                        <div class="col-md-4">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <img src="https://cdn.jsdelivr.net/gh/amzrk2/poal-jsdelivr@1.1.0/lazyload/dsrca_loading_480x270.svg" data-src="https://cdn.jsdelivr.net/gh/amzrk2/poal-jsdelivr@1.5.0/kiseki/img/{{ .img }}" class="lazyload card-img-top rounded mb-3" />
+                                    <h5 class="card-title">{{ .name }}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{ .meta }}</h6>
+                                    <p class="card-text">{{ .des }}</p>
+                                    <a href="{{ .link1 }}" target="_blank" class="card-link">官方网站</a>
+                                    <a href="{{ .link2 }}" target="_blank" class="card-link">相关链接</a>
+                                </div>
+                            </div>
+                        </div>
+                        {{ end }}
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="kiseki-sen">
+                    <div class="row">
+                        {{ range .Site.Data.kiseki.sen }}
+                        <div class="col-md-4">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <img src="https://cdn.jsdelivr.net/gh/amzrk2/poal-jsdelivr@1.1.0/lazyload/dsrca_loading_480x270.svg" data-src="https://cdn.jsdelivr.net/gh/amzrk2/poal-jsdelivr@1.5.0/kiseki/img/{{ .img }}" class="lazyload card-img-top rounded mb-3" />
+                                    <h5 class="card-title">{{ .name }}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{ .meta }}</h6>
+                                    <p class="card-text">{{ .des }}</p>
+                                    <a href="{{ .link1 }}" target="_blank" class="card-link">官方网站</a>
+                                    <a href="{{ .link2 }}" target="_blank" class="card-link">相关链接</a>
+                                </div>
+                            </div>
+                        </div>
+                        {{ end }}
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="kiseki-hajimari">
+                    <div class="row">
+                        {{ range .Site.Data.kiseki.hajimari }}
+                        <div class="col-md-4">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <img src="https://cdn.jsdelivr.net/gh/amzrk2/poal-jsdelivr@1.1.0/lazyload/dsrca_loading_480x270.svg" data-src="https://cdn.jsdelivr.net/gh/amzrk2/poal-jsdelivr@1.5.0/kiseki/img/{{ .img }}" class="lazyload card-img-top rounded mb-3" />
+                                    <h5 class="card-title">{{ .name }}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{ .meta }}</h6>
+                                    <p class="card-text">{{ .des }}</p>
+                                    <a href="{{ .link1 }}" target="_blank" class="card-link">官方网站</a>
+                                    <a href="{{ .link2 }}" target="_blank" class="card-link">相关链接</a>
+                                </div>
+                            </div>
+                        </div>
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="alert alert-info mt-3 mb-0">
+            声明：本页面内容来源于他人发布于网络的公开信息，版权投诉请联系 <a href="mailto:mail@amzrk2.cc">mail@amzrk2.cc</a>。
+        </div>
+    </div>
+</main>
+{{ end }}
+
+{{ define "footer" }}
+{{ partial "footer" . }}
+{{ end }}
+
+{{ define "script" }}
+{{ partial "script" . }}
+{{ end }}

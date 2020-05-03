@@ -7,12 +7,14 @@
 {{ end }}
 
 {{ define "main" }}
-<div class="container py-3 text-center">
-    <div class="alert alert-success">
-        <span>最后更新时间: {{ .Date }}</span>
+<main>
+    <div class="container py-3 text-center">
+        <div class="alert alert-success">
+            <span>最后更新时间: {{ .Date }}</span>
+        </div>
+        {{ .Content }}
     </div>
-    {{ .Content }}
-</div>
+</main>
 {{ end }}
 
 {{ define "footer" }}
