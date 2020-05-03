@@ -4,3 +4,8 @@ title = "DSRCA"
 disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
 enableRobotsTXT = true
 googleAnalytics = "UA-146011233-1"
+
+[params]
+  author = "DSRKafuU"
+  description = "DSRCA home project."
+  images = ["img/_og.png"]
