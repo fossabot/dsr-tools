@@ -1,0 +1,32 @@
+{{ define "head" }}
+{{ partial "head" . }}
+{{ end }}
+
+{{ define "nav" }}
+{{ partial "nav" . }}
+{{ end }}
+
+{{ define "main" }}
+{{ .Content }}
+{{ end }}
+
+{{ define "footer" }}
+{{ partial "footer" . }}
+{{ end }}
+
+{{ define "script" }}
+{{ partial "script" . }}
+<script>
+    var clickCounter = 0;
+    $("#secret").click(function () {
+        clickCounter += 1;
+        if (clickCounter === 2) {
+            $(".toast").toast("show");
+        }
+    });
+    $("#secret-link").click(function () {
+        $("#secret a").removeClass("disabled");
+        $("#secret-link").text("入口已打开");
+    });
+</script>
+{{ end }}
