@@ -1,30 +1,30 @@
 {
-  "name": "dsrca",
-  "version": "1.0.0",
-  "description": "DSRCA home project.",
-  "scripts": {
-    "css": "npm run css-compile && npm run css-prefix && npm run css-minify",
-    "css-compile": "node-sass --include-path node_modules --output-style expanded --source-map true --source-map-contents true --precision 6 assets/scss/ -o assets/css/",
-    "css-prefix": "postcss --replace assets/css/bootstrap_mod.css --use autoprefixer --map",
-    "css-minify": "cleancss --level 1 --format breakWith=lf --source-map --source-map-inline-sources --output static/css/bootstrap_mod.min.css assets/css/bootstrap_mod.css"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/amzrk2/dsrca.git"
-  },
-  "author": "DSRKafuU <mail@amzrk2.cc> (https://amzrk2.cc/)",
-  "license": "GPL-3.0-only",
-  "bugs": {
-    "url": "https://github.com/amzrk2/dsrca/issues"
-  },
-  "homepage": "https://github.com/amzrk2/dsrca#readme",
-  "dependencies": {
-    "jquery": "~3.4.1",
-    "popper.js": "~1.16.1",
-    "bootstrap": "~4.4.1",
-    "node-sass": "~4.14.0",
-    "postcss-cli": "~7.1.1",
-    "autoprefixer": "~9.7.6",
-    "clean-css-cli": "~4.3.0"
-  }
+    "name": "dsrca",
+    "version": "1.0.1",
+    "description": "DSRCA home.",
+    "scripts": {
+        "css": "npm run css-compile && npm run css-prefix && npm run css-minify",
+        "css-compile": "node-sass --include-path node_modules --output-style expanded --source-map true --source-map-contents true --precision 6 assets/scss/ -o assets/css/",
+        "css-prefix": "postcss --replace assets/css/bootstrap_mod.css --use autoprefixer --map",
+        "css-minify": "cleancss --level 1 --format breakWith=lf --source-map --source-map-inline-sources --output static/css/bootstrap_mod.min.css assets/css/bootstrap_mod.css"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/amzrk2/dsrca.git"
+    },
+    "author": "DSRKafuU <mail@amzrk2.cc> (https://amzrk2.cc/)",
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/amzrk2/dsrca/issues"
+    },
+    "homepage": "https://github.com/amzrk2/dsrca#readme",
+    "dependencies": {
+        "jquery": "~3.4.1",
+        "popper.js": "~1.16.1",
+        "bootstrap": "~4.4.1",
+        "node-sass": "~4.14.0",
+        "postcss-cli": "~7.1.1",
+        "autoprefixer": "~9.7.6",
+        "clean-css-cli": "~4.3.0"
+    }
 }

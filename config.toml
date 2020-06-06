@@ -1,4 +1,4 @@
-baseURL = "https://amzrk2.cc"
+baseURL = "https://dsrca.amzrk2.cc"
 languageCode = "zh-hans"
 title = "DSRCA"
 disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
@@ -7,5 +7,5 @@ googleAnalytics = "UA-146011233-7"
 
 [params]
   author = "DSRKafuU"
-  description = "DSRCA home project."
-  images = ["https://amzrk2.cc/img/og.png"]
+  description = "DSRCA home."
+  images = ["https://dsrca.amzrk2.cc/img/og.png"]

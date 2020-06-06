@@ -8,9 +8,9 @@ Pause
 Remove-Item public, resources -Force -Recurse
 hugo
 
-Write-Host Ready to fetching amzrk2.github.io...
+Write-Host Ready to fetching from GitHub...
 Pause
-Set-Location ..\amzrk2.github.io
+Set-Location ..\dsrca.github.io
 git pull origin
 Get-ChildItem -Exclude .git, .gitattributes, .gitignore, CNAME, LICENSE | Remove-Item -Recurse -Force
 Get-ChildItem ..\dsrca-source\public | Copy-Item -Force -Recurse
