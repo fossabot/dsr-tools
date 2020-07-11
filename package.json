@@ -1,30 +1,32 @@
 {
-    "name": "dsrca",
-    "version": "1.0.1",
-    "description": "DSRCA home.",
-    "scripts": {
-        "css": "npm run css-compile && npm run css-prefix && npm run css-minify",
-        "css-compile": "node-sass --include-path node_modules --output-style expanded --source-map true --source-map-contents true --precision 6 assets/scss/ -o assets/css/",
-        "css-prefix": "postcss --replace assets/css/bootstrap_mod.css --use autoprefixer --map",
-        "css-minify": "cleancss --level 1 --format breakWith=lf --source-map --source-map-inline-sources --output static/css/bootstrap_mod.min.css assets/css/bootstrap_mod.css"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/amzrk2/dsrca.git"
-    },
-    "author": "DSRKafuU <mail@amzrk2.cc> (https://amzrk2.cc/)",
-    "license": "Apache-2.0",
-    "bugs": {
-        "url": "https://github.com/amzrk2/dsrca/issues"
-    },
-    "homepage": "https://github.com/amzrk2/dsrca#readme",
-    "dependencies": {
-        "jquery": "~3.4.1",
-        "popper.js": "~1.16.1",
-        "bootstrap": "~4.4.1",
-        "node-sass": "~4.14.0",
-        "postcss-cli": "~7.1.1",
-        "autoprefixer": "~9.7.6",
-        "clean-css-cli": "~4.3.0"
-    }
+  "name": "dsrca-source",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build --modern",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "vue": "^2.6.11",
+    "vue-router": "^3.2.0",
+    "vuetify": "^2.2.11",
+    "vuex": "^3.4.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.4.0",
+    "@vue/cli-plugin-eslint": "~4.4.0",
+    "@vue/cli-plugin-router": "~4.4.0",
+    "@vue/cli-plugin-vuex": "~4.4.0",
+    "@vue/cli-service": "~4.4.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "vue-cli-plugin-vuetify": "~2.0.6",
+    "vue-template-compiler": "^2.6.11",
+    "vuetify-loader": "^1.3.0"
+  }
 }

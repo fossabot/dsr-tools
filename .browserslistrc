@@ -1,5 +1,3 @@
-# https://github.com/browserslist/browserslist#readme
-
-defaults
-Chrome >= 70
-Firefox >= 60
+> 1%
+last 2 versions
+not dead
