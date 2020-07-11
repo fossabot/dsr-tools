@@ -2,7 +2,7 @@
 title: 'FFXIV - 狩猎时间表'
 description: '最终幻想 14 中国服三大区狩猎时间表'
 tags: ['FFXIV', '最终幻想14', '狩猎时间表']
-date: 2020-07-02T21:52:37+08:00
+date: 2020-07-11T18:18:59+08:00
 exCopyright: '2009-2020 Square Enix Holdings Co., Ltd.'
 layout: 'ffxiv'
 ---
