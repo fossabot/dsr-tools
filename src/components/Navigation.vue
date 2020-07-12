@@ -6,14 +6,17 @@
         v-if="!route.children"
         :key="route.name"
         :class="isRouteActive(route.path)"
-        @click="navigateTo(route.path)"
+        @click="navigateTo(route)"
         color="primary"
       >
         <v-list-item-icon>
           <v-icon>{{ route.meta.icon }}</v-icon>
         </v-list-item-icon>
         <v-list-item-content>
-          <v-list-item-title>{{ route.meta.name }}</v-list-item-title>
+          <v-list-item-title>
+            {{ route.meta.name }}
+            <v-icon small v-if="route.meta.ext">mdi-open-in-new</v-icon>
+          </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
       <!-- 若有子路由 -->
@@ -30,11 +33,14 @@
           v-for="child of route.children"
           :key="child.name"
           :class="isRouteActive(child.path)"
-          @click="navigateTo(child.path)"
+          @click="navigateTo(child)"
           color="primary"
         >
           <v-list-item-content>
-            <v-list-item-title>{{ child.meta.name }}</v-list-item-title>
+            <v-list-item-title>
+              {{ child.meta.name }}
+              <v-icon small v-if="child.meta.ext">mdi-open-in-new</v-icon>
+            </v-list-item-title>
           </v-list-item-content>
           <v-list-item-icon>
             <v-icon>{{ child.meta.icon }}</v-icon>
@@ -50,8 +56,12 @@ export default {
   name: 'Navigation',
   props: ['routes', 'drawer'],
   methods: {
-    navigateTo(path) {
-      this.$router.push(path);
+    navigateTo(route) {
+      if (route.meta.ext) {
+        window.open(route.meta.ext);
+      } else {
+        this.$router.push(route.path);
+      }
     },
     isRouteActive(path) {
       if (path === this.$route.path) {

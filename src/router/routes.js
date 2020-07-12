@@ -17,10 +17,10 @@ const routes = [
   {
     path: '/legacy/',
     name: 'legacy',
-    component: Home,
     meta: {
       name: '访问旧版',
       icon: 'mdi-folder-remove',
+      ext: 'https://amzrk2.cc/',
     },
   },
 ];
