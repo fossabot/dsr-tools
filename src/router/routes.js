@@ -13,8 +13,8 @@ const routes = [
     },
   },
   game,
-  about,
   project,
+  about,
   {
     path: '/legacy/',
     meta: {

@@ -18,8 +18,8 @@ export default {
       path: '/project/fake-update-ng/',
       meta: {
         name: '系统升级模拟器',
-        icon: 'mdi-github',
-        ext: 'https://github.com/amzrk2/fake-update-ng',
+        icon: 'mdi-update',
+        ext: 'https://fake-update.amzrk2.cc/',
       },
     },
   ],
