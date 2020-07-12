@@ -1,31 +1,22 @@
-import Home from '@/views/Home.vue';
+import ChildRouter from '@/views/ChildRouter.vue';
 
 export default {
   path: '/game/',
   name: 'game',
-  component: Home,
-  meta: {
-    name: '游戏工具',
-    icon: 'mdi-gamepad',
-  },
+  component: ChildRouter,
+  meta: { name: '游戏工具', icon: 'mdi-gamepad' },
   children: [
     {
       path: '/game/minecraft/',
       name: 'game-minecraft',
-      component: Home,
-      meta: {
-        name: 'Minecraft',
-        icon: 'mdi-minecraft',
-      },
+      component: () => import('@/views/game/Minecraft.vue'),
+      meta: { name: 'Minecraft', icon: 'mdi-minecraft' },
     },
     {
       path: '/game/ffxiv/',
       name: 'game-ffxiv',
-      component: Home,
-      meta: {
-        name: 'FFXIV',
-        icon: 'mdi-account-supervisor-circle',
-      },
+      component: () => import('@/views/game/FFXIV.vue'),
+      meta: { name: 'FFXIV', icon: 'mdi-account-supervisor-circle' },
     },
   ],
 };

@@ -1,9 +1,9 @@
-import Home from '@/views/Home.vue';
+import ChildRouter from '@/views/ChildRouter.vue';
 
 export default {
   path: '/about/',
   name: 'about',
-  component: () => import(/* webpackChunkName: "about" */ '@/views/About.vue'),
+  component: ChildRouter,
   meta: {
     name: '关于本站',
     icon: 'mdi-information',
@@ -12,20 +12,14 @@ export default {
     {
       path: '/about/changelog/',
       name: 'about-changelog',
-      component: Home,
-      meta: {
-        name: '更新记录',
-        icon: 'mdi-timeline',
-      },
+      component: () => import('@/views/about/Changelog.vue'),
+      meta: { name: '更新记录', icon: 'mdi-timeline' },
     },
     {
       path: '/about/site/',
       name: 'about-site',
-      component: Home,
-      meta: {
-        name: '站点信息',
-        icon: 'mdi-license',
-      },
+      component: () => import('@/views/about/About.vue'),
+      meta: { name: '站点信息', icon: 'mdi-license' },
     },
   ],
 };
