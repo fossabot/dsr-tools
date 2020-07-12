@@ -20,12 +20,12 @@ const routes = [
     meta: {
       name: '访问旧版',
       icon: 'mdi-folder-remove',
-      ext: 'https://amzrk2.cc/',
+      ext: 'https://dsrca-legacy.amzrk2.cc/',
     },
   },
   {
     path: '/404/',
-    component: () => import(/* webpackChunkName: "404" */ '@/views/NotFound.vue'),
+    component: () => import(/* webpackChunkName: "notfound" */ '@/views/NotFound.vue'),
     meta: {
       name: '404 NOT FOUND',
       hide: true,
