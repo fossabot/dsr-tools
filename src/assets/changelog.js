@@ -1,5 +1,12 @@
 export default [
   {
+    version: 'v3.0.1',
+    date: '2020-07-13',
+    logs: ['修复 Google Analytics', '添加 GitHub Actions 测试', '修复 SEO Tags'],
+    active: true,
+    latest: true,
+  },
+  {
     version: 'v3.0.0',
     date: '2020-07-12',
     logs: [
@@ -11,8 +18,7 @@ export default [
       '关于页面更新',
       'Crisp 客服支持',
     ],
-    active: true,
-    latest: true,
+    active: false,
   },
   {
     version: 'v2.3.1',
