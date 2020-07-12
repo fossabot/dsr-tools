@@ -2,7 +2,7 @@ export default [
   {
     version: 'v3.0.1',
     date: '2020-07-13',
-    logs: ['修复 Google Analytics', '添加 GitHub Actions 测试', '修复 SEO Tags'],
+    logs: ['修复 Google Analytics', '添加 GitHub Actions 测试', '修复 SEO Tags', '修复关于页面列表样式'],
     active: true,
     latest: true,
   },

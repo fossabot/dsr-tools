@@ -98,8 +98,8 @@ export default {
 
 <style lang="scss" scoped>
 .headers > * {
-  flex: 0 0 auto;
-  margin-right: 1rem;
+  flex: 0 0 auto !important;
+  margin-right: 1rem !important;
 
   &:nth-child(2) {
     font-size: 1.25rem;
