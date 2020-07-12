@@ -18,7 +18,10 @@
     </v-app-bar>
 
     <v-main>
-      <router-view></router-view>
+      <div class="content">
+        <router-view></router-view>
+      </div>
+
       <global-footer></global-footer>
     </v-main>
   </v-app>
@@ -49,3 +52,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.content {
+  margin-bottom: 50px;
+}
+</style>
