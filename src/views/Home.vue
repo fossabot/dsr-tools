@@ -34,7 +34,7 @@ export default {
         },
         {
           name: 'bilibili',
-          src: 'https://bgm.tv/subject/277954',
+          src: 'https://www.bilibili.com/bangumi/media/md28228386/',
         },
       ],
     };

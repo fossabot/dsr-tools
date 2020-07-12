@@ -17,7 +17,7 @@
         </v-list-item-content>
       </v-list-item>
       <!-- 若有子路由 -->
-      <v-list-group v-else :key="route.name" no-action>
+      <v-list-group v-else :key="route.name" no-action :value="isGroupActive(route.path)">
         <template v-slot:activator>
           <v-list-item-icon>
             <v-icon>{{ route.meta.icon }}</v-icon>
@@ -58,6 +58,9 @@ export default {
       } else {
         return '';
       }
+    },
+    isGroupActive(path) {
+      return this.$route.path.includes(path);
     },
   },
 };
