@@ -15,15 +15,13 @@
     </v-app-bar>
 
     <v-main>
-      <v-container fluid>
-        <router-view></router-view>
+      <router-view></router-view>
 
-        <v-footer absolute color="primary" dark>
-          <v-spacer></v-spacer>
-          <div>&copy; {{ new Date().getFullYear() }}</div>
-          <v-spacer></v-spacer>
-        </v-footer>
-      </v-container>
+      <v-footer absolute color="primary" dark>
+        <v-spacer></v-spacer>
+        <div>&copy; {{ new Date().getFullYear() }}</div>
+        <v-spacer></v-spacer>
+      </v-footer>
     </v-main>
   </v-app>
 </template>
