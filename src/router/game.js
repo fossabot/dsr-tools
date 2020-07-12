@@ -8,12 +8,12 @@ export default {
   children: [
     {
       path: '/game/minecraft/',
-      component: () => import('@/views/game/Minecraft.vue'),
+      component: () => import(/* webpackChunkName: "minecraft" */ '@/views/game/Minecraft.vue'),
       meta: { name: 'Minecraft 整合包', icon: 'mdi-minecraft' },
     },
     {
       path: '/game/ffxiv/',
-      component: () => import('@/views/game/FFXIV.vue'),
+      component: () => import(/* webpackChunkName: "ffxiv" */ '@/views/game/FFXIV.vue'),
       meta: { name: 'FFXIV 狩猎时间表', icon: 'mdi-account-supervisor-circle' },
     },
   ],

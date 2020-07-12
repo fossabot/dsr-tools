@@ -11,12 +11,12 @@ export default {
   children: [
     {
       path: '/about/changelog/',
-      component: () => import('@/views/about/Changelog.vue'),
+      component: () => import(/* webpackChunkName: "about" */ '@/views/about/Changelog.vue'),
       meta: { name: '更新记录', icon: 'mdi-timeline' },
     },
     {
       path: '/about/site/',
-      component: () => import('@/views/about/About.vue'),
+      component: () => import(/* webpackChunkName: "about" */ '@/views/about/About.vue'),
       meta: { name: '站点信息', icon: 'mdi-license' },
     },
   ],
