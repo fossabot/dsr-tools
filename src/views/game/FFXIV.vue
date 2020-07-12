@@ -24,13 +24,13 @@
             <v-list-item two-line>
               <v-list-item-content>
                 <v-list-item-title>错误反馈</v-list-item-title>
-                <v-list-item-subtitle>请使用右上角按钮直接进行客服提问反馈, 或至 NGA 原帖回帖反馈</v-list-item-subtitle>
+                <v-list-item-subtitle>请使用右下角按钮直接进行客服提问反馈, 或至 NGA 原帖回帖反馈</v-list-item-subtitle>
               </v-list-item-content>
             </v-list-item>
             <v-list-item two-line>
               <v-list-item-content>
                 <v-list-item-title>感谢访问</v-list-item-title>
-                <v-list-item-subtitle>如果觉得本站对您有所帮助还请多多分享, 使用右上角分享按钮可快捷复制链接</v-list-item-subtitle>
+                <v-list-item-subtitle>如果觉得本站对您有所帮助还请多多分享</v-list-item-subtitle>
               </v-list-item-content>
             </v-list-item>
             <v-list-item two-line>
