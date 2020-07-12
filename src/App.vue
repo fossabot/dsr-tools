@@ -32,6 +32,7 @@ import routes from '@/router/routes';
 import NavLogo from '@/components/NavLogo';
 import Navigation from '@/components/Navigation';
 import GlobalFooter from '@/components/Footer';
+
 export default {
   name: 'App',
   components: {

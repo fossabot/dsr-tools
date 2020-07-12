@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>Minecraft</v-container>
+  <div class="fill-height">未完工</div>
 </template>
 
 <script>
