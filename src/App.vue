@@ -19,12 +19,7 @@
 
     <v-main>
       <router-view></router-view>
-
-      <v-footer absolute color="primary" dark>
-        <v-spacer></v-spacer>
-        <div>&copy; {{ new Date().getFullYear() }}</div>
-        <v-spacer></v-spacer>
-      </v-footer>
+      <global-footer></global-footer>
     </v-main>
   </v-app>
 </template>
@@ -33,12 +28,13 @@
 import routes from '@/router/routes';
 import NavLogo from '@/components/NavLogo';
 import Navigation from '@/components/Navigation';
-
+import GlobalFooter from '@/components/Footer';
 export default {
   name: 'App',
   components: {
     NavLogo,
     Navigation,
+    GlobalFooter,
   },
   data() {
     return {

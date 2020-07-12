@@ -1,11 +1,11 @@
 import Home from '@/views/Home.vue';
 import game from './game';
 import about from './about';
+import project from './project';
 
 const routes = [
   {
     path: '/',
-    name: 'home',
     component: Home,
     meta: {
       name: '首页',
@@ -14,9 +14,9 @@ const routes = [
   },
   game,
   about,
+  project,
   {
     path: '/legacy/',
-    name: 'legacy',
     meta: {
       name: '访问旧版',
       icon: 'mdi-folder-remove',
