@@ -16,4 +16,14 @@ const router = new VueRouter({
   routes,
 });
 
+router.beforeEach((to, from, next) => {
+  if (to.meta.name) {
+    document.title = `${to.meta.name} - DSRCA`;
+  } else {
+    document.title = 'DSRCA';
+  }
+
+  next();
+});
+
 export default router;
