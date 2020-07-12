@@ -47,7 +47,6 @@ export default {
 
 <style lang="scss" scoped>
 .home {
-  width: 100%;
   height: 100%;
 
   background: url('https://cdn.jsdelivr.net/gh/amzrk2/cdn-stcapi@1/dsrca/home/cover-row.webp') no-repeat center center

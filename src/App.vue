@@ -55,6 +55,8 @@ export default {
 
 <style lang="scss" scoped>
 .content {
-  margin-bottom: 50px;
+  padding-bottom: 50px;
+  height: 100%;
+  min-height: 100%;
 }
 </style>

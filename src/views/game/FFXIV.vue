@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-tabs v-model="tab" color="info">
+    <v-tabs v-model="tab" color="info" @change="handleTabChange">
       <v-tab href="#tab-0">关于</v-tab>
       <v-tab href="#tab-1">陆行鸟</v-tab>
       <v-tab href="#tab-2">莫古力</v-tab>
@@ -72,14 +72,15 @@
 <script>
 import axios from 'axios';
 import CDN from '@/plugins/cdn';
+import ls from '@/plugins/ls';
 
 export default {
   name: 'FFXIV',
   data() {
     return {
       data: [],
-      tab: 'tab-0',
       lastUpdate: new Date(0),
+      tab: ls.getLS('dsrca_ffxiv-tab') || 'tab-0',
       headers: [
         { text: '服务器', value: 'server', align: 'center' },
         { text: '早车', value: 'timeTable[0]', align: 'center' },
@@ -120,6 +121,9 @@ export default {
       } catch (e) {
         console.error(e);
       }
+    },
+    handleTabChange(val) {
+      ls.setLS('dsrca_ffxiv-tab', val);
     },
   },
   mounted() {
