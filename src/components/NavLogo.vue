@@ -1,6 +1,8 @@
 <template>
   <v-container fluid class="drawer-logo">
-    <v-img :src="CDN('./home/dsrca_logo_roll.png')" aspect-ratio="1" width="120px" contain />
+    <v-avatar class="my-10" height="120px" width="120px">
+      <img :src="CDN('./home/dsrca_head.png')" />
+    </v-avatar>
   </v-container>
 </template>
 
@@ -21,9 +23,5 @@ export default {
 .drawer-logo {
   text-align: center;
   background-color: $color-primary;
-
-  & > div {
-    margin: 40px auto;
-  }
 }
 </style>
