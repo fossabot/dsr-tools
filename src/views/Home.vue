@@ -50,30 +50,14 @@ export default {
   width: 100%;
   height: 100%;
 
-  @if $NODE_ENV == production {
-    background: url('https://cdn.jsdelivr.net/gh/amzrk2/cdn-stcapi@1.0.2/dsrca/home/cover-row-2020-2-hotfix.webp')
-      no-repeat
-      center
-      center
+  background: url('https://cdn.jsdelivr.net/gh/amzrk2/cdn-stcapi@1/dsrca/home/cover-row.webp') no-repeat center center
+    fixed;
+  background-size: cover;
+
+  @media screen and (max-width: 900px) {
+    background: url('https://cdn.jsdelivr.net/gh/amzrk2/cdn-stcapi@1/dsrca/home/cover-col.webp') no-repeat center center
       fixed;
     background-size: cover;
-  } @else {
-    background: url('/mock/home/cover-row-2020-2-hotfix.webp') no-repeat center center fixed;
-    background-size: cover;
-  }
-
-  @media screen and (max-width: 768px) {
-    @if $NODE_ENV == production {
-      background: url('https://cdn.jsdelivr.net/gh/amzrk2/cdn-stcapi@1.0.2/dsrca/home/cover-col-2020-2-hotfix.webp')
-        no-repeat
-        center
-        center
-        fixed;
-      background-size: cover;
-    } @else {
-      background: url('/mock/home/cover-col-2020-2-hotfix.webp') no-repeat center center fixed;
-      background-size: cover;
-    }
   }
 }
 
