@@ -9,6 +9,7 @@ export default [
       'FFXIV 国服狩猎车时间表模块更新',
       'Minecraft DSRCA 整合包发布模块更新',
       '关于页面更新',
+      'Crisp 客服支持',
     ],
     active: true,
     latest: true,
@@ -29,12 +30,6 @@ export default [
     version: 'v2.2.0',
     date: '2020-03-02',
     logs: ['二级页面迁移', '首页背景图片更新'],
-    active: false,
-  },
-  {
-    version: 'v2.2.0',
-    date: '2020-03-02',
-    logs: ['二级页面迁移'],
     active: false,
   },
   {
