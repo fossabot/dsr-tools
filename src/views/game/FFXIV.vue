@@ -1,12 +1,16 @@
 <template>
-  <div>
+  <div class="fill-height">
     <v-tabs v-model="tab" color="info" @change="handleTabChange">
       <v-tab href="#tab-0">关于</v-tab>
       <v-tab href="#tab-1">陆行鸟</v-tab>
       <v-tab href="#tab-2">莫古力</v-tab>
       <v-tab href="#tab-3">猫小胖</v-tab>
     </v-tabs>
-    <v-tabs-items v-model="tab">
+    <v-tabs-items v-model="tab" class="fill-height">
+      <v-overlay absolute :opacity="1" color="white" :value="loading">
+        <v-progress-circular indeterminate color="primary"></v-progress-circular>
+      </v-overlay>
+
       <v-tab-item key="tab-0" value="tab-0">
         <v-container class="pa-10">
           <v-alert type="success">{{ formatedDate }}</v-alert>
@@ -78,6 +82,7 @@ export default {
   name: 'FFXIV',
   data() {
     return {
+      loading: true,
       data: [],
       lastUpdate: new Date(0),
       tab: ls.getLS('dsrca_ffxiv-tab') || 'tab-0',
@@ -115,6 +120,7 @@ export default {
             let areaData = res.huntingData[area];
             this.data.push(areaData);
           }
+          this.loading = false;
         } else {
           throw new Error('Response wrong status');
         }
