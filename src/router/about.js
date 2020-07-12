@@ -15,6 +15,7 @@ export default {
       component: Home,
       meta: {
         name: '更新记录',
+        icon: 'mdi-timeline',
       },
     },
     {
@@ -23,6 +24,7 @@ export default {
       component: Home,
       meta: {
         name: '站点信息',
+        icon: 'mdi-license',
       },
     },
   ],

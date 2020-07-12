@@ -20,7 +20,7 @@ const routes = [
     component: Home,
     meta: {
       name: '访问旧版',
-      icon: 'mdi-home',
+      icon: 'mdi-folder-remove',
     },
   },
 ];

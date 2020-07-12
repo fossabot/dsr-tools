@@ -36,6 +36,9 @@
           <v-list-item-content>
             <v-list-item-title>{{ child.meta.name }}</v-list-item-title>
           </v-list-item-content>
+          <v-list-item-icon>
+            <v-icon>{{ child.meta.icon }}</v-icon>
+          </v-list-item-icon>
         </v-list-item>
       </v-list-group>
     </template>

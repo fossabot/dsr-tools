@@ -15,6 +15,7 @@ export default {
       component: Home,
       meta: {
         name: 'Minecraft',
+        icon: 'mdi-minecraft',
       },
     },
     {
@@ -23,6 +24,7 @@ export default {
       component: Home,
       meta: {
         name: 'FFXIV',
+        icon: 'mdi-account-supervisor-circle',
       },
     },
   ],
