@@ -23,6 +23,21 @@ const routes = [
       ext: 'https://amzrk2.cc/',
     },
   },
+  {
+    path: '/404/',
+    component: () => import(/* webpackChunkName: "404" */ '@/views/NotFound.vue'),
+    meta: {
+      name: '404 NOT FOUND',
+      hide: true,
+    },
+  },
+  {
+    path: '/*',
+    redirect: '/404/',
+    meta: {
+      hide: true,
+    },
+  },
 ];
 
 export default routes;
