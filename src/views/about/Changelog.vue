@@ -1,9 +1,68 @@
 <template>
-  <div>Changelog</div>
+  <v-container fluid class="pt-10 pb-15 pr-10">
+    <v-timeline v-for="item of changelog" :key="item.version" dense align-top>
+      <v-timeline-item fill-dot :small="!item.latest" color="info">
+        <template v-slot:icon>
+          <v-icon dark :small="!item.latest" v-text="item.latest?'mdi-check':'mdi-history'"></v-icon>
+        </template>
+        <v-card class="elevation-2">
+          <v-card-title class="py-2 px-4">
+            <span>{{ item.version }}</span>
+            <span class="mx-2">-</span>
+            <span class="subtitle-2">{{ item.date }}</span>
+            <v-spacer />
+            <v-btn
+              depressed
+              small
+              color="info"
+              @click="item.active=!item.active"
+              v-text="item.active?'关闭详情':'查看详情'"
+            ></v-btn>
+          </v-card-title>
+          <v-expand-transition>
+            <div v-if="item.active">
+              <v-divider />
+              <v-card-subtitle class="subtitle-2">更新内容</v-card-subtitle>
+              <v-card-text>
+                <ol>
+                  <li v-for="(log,index) in item.logs" :key="`${item.version}-${index}`">{{ log }}</li>
+                </ol>
+              </v-card-text>
+            </div>
+          </v-expand-transition>
+        </v-card>
+      </v-timeline-item>
+    </v-timeline>
+  </v-container>
 </template>
 
 <script>
 export default {
   name: 'Changelog',
+  data() {
+    return {
+      changelog: [
+        {
+          version: 'v3.0.0',
+          date: '2020-07-12',
+          logs: ['基于 Vue.js 迁移至 Vuetify', '全站样式更新'],
+          active: true,
+          latest: true,
+        },
+        {
+          version: 'v2.0.0',
+          date: '2020-07-12',
+          logs: ['a', 'b'],
+          active: false,
+        },
+        {
+          version: 'v1.0.0',
+          date: '2020-07-12',
+          logs: ['a', 'b'],
+          active: false,
+        },
+      ],
+    };
+  },
 };
 </script>
