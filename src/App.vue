@@ -9,12 +9,7 @@
       <v-app-bar-nav-icon @click.stop="switchDrawerActive"></v-app-bar-nav-icon>
       <v-toolbar-title>{{ $route.meta.name }}</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn icon>
-        <v-icon>mdi-share-variant</v-icon>
-      </v-btn>
-      <v-btn icon>
-        <v-icon>mdi-help-circle-outline</v-icon>
-      </v-btn>
+      <span>{{ clock }}</span>
     </v-app-bar>
 
     <v-main>
@@ -44,12 +39,26 @@ export default {
     return {
       routes,
       drawer: null,
+      clock: '',
     };
   },
   methods: {
     switchDrawerActive() {
       this.drawer = !this.drawer;
     },
+    updateClock() {
+      let date = new Date();
+      let h = `${date.getHours()}`.padStart(2, '0');
+      let m = `${date.getMinutes()}`.padStart(2, '0');
+      let s = `${date.getSeconds()}`.padStart(2, '0');
+      this.clock = `${h}:${m}:${s}`;
+    },
+  },
+  mounted() {
+    this.updateClock();
+    setInterval(() => {
+      this.updateClock();
+    }, 1000);
   },
 };
 </script>
