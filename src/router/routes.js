@@ -20,7 +20,7 @@ const routes = [
     meta: {
       name: '访问旧版',
       icon: 'mdi-folder-remove',
-      ext: 'https://dsrca-legacy.amzrk2.cc/',
+      ext: 'https://dsrca.github.io/',
     },
   },
   {
