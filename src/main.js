@@ -7,10 +7,17 @@ import vuetify from './plugins/vuetify';
 Vue.config.productionTip = false;
 
 import VueAnalytics from 'vue-analytics';
-Vue.use(VueAnalytics, {
-  id: 'UA-146011233-7',
-  router,
-});
+if (process.env.NODE_ENV === 'production') {
+  Vue.use(VueAnalytics, {
+    id: 'UA-146011233-7',
+    router,
+  });
+} else {
+  Vue.use(VueAnalytics, {
+    id: 'UA-000000000-0',
+    router,
+  });
+}
 
 new Vue({
   router,
