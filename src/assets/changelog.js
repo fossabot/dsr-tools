@@ -1,5 +1,12 @@
 export default [
   {
+    version: 'v3.0.1-hotfix',
+    date: '2020-07-14',
+    logs: ['修复缓存时间记录错误的问题'],
+    active: true,
+    latest: true,
+  },
+  {
     version: 'v3.0.1',
     date: '2020-07-14',
     logs: [
@@ -10,8 +17,7 @@ export default [
       '修复 SEO Tags',
       '修复关于页面列表样式',
     ],
-    active: true,
-    latest: true,
+    active: false,
   },
   {
     version: 'v3.0.0',
@@ -36,7 +42,7 @@ export default [
   {
     version: 'v2.3.0',
     date: '2020-03-28',
-    logs: ['考虑稳定性原因对服务器进行迁移', '全站样式更新', '狩猎车添加 4.0 车数据'],
+    logs: ['考虑稳定性原因对服务器进行迁移', '全站样式更新', '狩猎车添加 4.0 车数据', '移除关于页面'],
     active: false,
   },
   {
@@ -61,6 +67,12 @@ export default [
     version: 'v2.0.0',
     date: '2020-01-14',
     logs: ['Bootstrap v4 重构站点'],
+    active: false,
+  },
+  {
+    version: 'v1.3.0',
+    date: '2019-12-30',
+    logs: ['添加关于页面'],
     active: false,
   },
   {

@@ -113,13 +113,17 @@ export default {
         const response = await axios.get(CDN('./ffxiv/cn-hunting.json'));
         if (response.status === 200) {
           const res = response.data;
+          // Update time
           this.lastUpdate = new Date(res.lastUpdate);
+          storage.setSS('dsrca_ffxiv-last-update', this.lastUpdate.getTime());
+          // Data
           for (let area in res.huntingData) {
             let areaData = res.huntingData[area];
             this.data.push(areaData);
           }
-          this.loading = false;
           storage.setSS('dsrca_ffxiv-cache', JSON.stringify(this.data));
+          console.log('[DSRCA] Latest data loaded');
+          this.loading = false;
         } else {
           throw new Error('Response wrong status');
         }
@@ -136,9 +140,12 @@ export default {
     },
   },
   mounted() {
+    const cacheDate = storage.getSS('dsrca_ffxiv-last-update');
     const cacheData = storage.getSS('dsrca_ffxiv-cache');
-    if (cacheData) {
+    if (cacheDate && cacheData) {
+      this.lastUpdate = new Date(Number.parseInt(cacheDate));
       this.data = JSON.parse(cacheData);
+      console.log('[DSRCA] Data cache loaded');
       this.loading = false;
     } else {
       this.fetchData();
