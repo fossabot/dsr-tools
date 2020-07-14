@@ -12,11 +12,6 @@ if (process.env.NODE_ENV === 'production') {
     id: 'UA-146011233-7',
     router,
   });
-} else {
-  Vue.use(VueAnalytics, {
-    id: 'UA-000000000-0',
-    router,
-  });
 }
 
 new Vue({

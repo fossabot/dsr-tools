@@ -14,33 +14,19 @@
       <v-tab-item key="tab-0" value="tab-0">
         <v-container class="pa-10">
           <v-alert type="success">{{ formatedDate }}</v-alert>
+          <v-alert type="info">
+            在原标签页直接刷新页面将不会拉取更新数据
+            <v-btn color="white" class="text-trans ml-2" small @click="handleFetch">强制更新数据</v-btn>
+          </v-alert>
           <v-card class="mx-auto mt-10 pa-2">
-            <v-list-item two-line>
+            <v-list-item two-line v-for="(sec, index) of info" :key="`info-${index}`">
               <v-list-item-content>
-                <v-list-item-title>更新频率</v-list-item-title>
-                <v-list-item-subtitle>狩猎车相关数据为手动更新, 约 10-15 天同步一次</v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
-            <v-list-item two-line>
-              <v-list-item-content>
-                <v-list-item-title>错误反馈</v-list-item-title>
-                <v-list-item-subtitle>请使用右下角按钮直接进行客服提问反馈, 或至 NGA 原帖回帖反馈</v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
-            <v-list-item two-line>
-              <v-list-item-content>
-                <v-list-item-title>感谢访问</v-list-item-title>
-                <v-list-item-subtitle>如果觉得本站对您有所帮助还请多多分享</v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
-            <v-list-item two-line>
-              <v-list-item-content>
-                <v-list-item-title>NGA 原帖</v-list-item-title>
+                <v-list-item-title>{{ sec.title }}</v-list-item-title>
                 <v-list-item-subtitle>
-                  <a
-                    href="https://nga.178.com/read.php?tid=20339590"
-                    target="_blank"
-                  >https://nga.178.com/read.php?tid=20339590</a>
+                  <template v-if="sec.link">
+                    <a :href="sec.text" target="_blank">{{ sec.text }}</a>
+                  </template>
+                  <template v-else>{{ sec.text }}</template>
                 </v-list-item-subtitle>
               </v-list-item-content>
             </v-list-item>
@@ -82,7 +68,7 @@
 <script>
 import axios from 'axios';
 import CDN from '@/plugins/cdn';
-import ls from '@/plugins/ls';
+import storage from '@/plugins/storage';
 
 export default {
   name: 'FFXIV',
@@ -91,7 +77,7 @@ export default {
       loading: true,
       data: [],
       lastUpdate: new Date(0),
-      tab: ls.getLS('dsrca_ffxiv-tab') || 'tab-0',
+      tab: storage.getLS('dsrca_ffxiv-tab') || 'tab-0',
       headers: [
         { text: '服务器', value: 'server', align: 'center' },
         { text: '早车', value: 'timeTable[0]', align: 'center' },
@@ -100,6 +86,12 @@ export default {
         { text: '灵车', value: 'timeTable[3]', align: 'center' },
         { text: '始发地', value: 'origin', align: 'center' },
         { text: '路线', value: 'route', align: 'center' },
+      ],
+      info: [
+        { title: '更新频率', text: '狩猎车相关数据为手动更新, 约 10-15 天同步一次', link: false },
+        { title: '错误反馈', text: '请使用右下角按钮直接进行客服提问反馈, 或至 NGA 原帖回帖反馈', link: false },
+        { title: '感谢访问', text: '如果觉得本站对您有所帮助还请多多分享, 用户的使用是我更新的最大动力', link: false },
+        { title: 'NGA 原帖', text: 'https://nga.178.com/read.php?tid=20339590', link: true },
       ],
     };
   },
@@ -127,19 +119,30 @@ export default {
             this.data.push(areaData);
           }
           this.loading = false;
+          storage.setSS('dsrca_ffxiv-cache', JSON.stringify(this.data));
         } else {
           throw new Error('Response wrong status');
         }
       } catch (e) {
-        console.error(e);
+        console.warn(e);
       }
     },
+    handleFetch() {
+      this.loading = true;
+      this.fetchData();
+    },
     handleTabChange(val) {
-      ls.setLS('dsrca_ffxiv-tab', val);
+      storage.setLS('dsrca_ffxiv-tab', val);
     },
   },
   mounted() {
-    this.fetchData();
+    const cacheData = storage.getSS('dsrca_ffxiv-cache');
+    if (cacheData) {
+      this.data = JSON.parse(cacheData);
+      this.loading = false;
+    } else {
+      this.fetchData();
+    }
   },
 };
 </script>
@@ -163,5 +166,9 @@ export default {
 a {
   text-decoration: none;
   color: $color-info;
+}
+
+.text-trans {
+  color: rgba(0, 0, 0, 0.5) !important;
 }
 </style>
