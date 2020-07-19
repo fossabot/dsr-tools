@@ -14,10 +14,6 @@
       <v-tab-item key="tab-0" value="tab-0">
         <v-container class="pa-10">
           <v-alert type="success">{{ formatedDate }}</v-alert>
-          <v-alert type="info">
-            在原标签页直接刷新页面将不会拉取更新数据
-            <v-btn color="white" class="text-trans ml-2" small @click="handleFetch">强制更新数据</v-btn>
-          </v-alert>
           <v-card class="mx-auto mt-10 pa-2">
             <v-list-item two-line v-for="(sec, index) of info" :key="`info-${index}`">
               <v-list-item-content>
@@ -120,14 +116,11 @@ export default {
           const res = response.data;
           // Update time
           this.lastUpdate = new Date(res.lastUpdate);
-          storage.setSS('dsrca_ffxiv-last-update', this.lastUpdate.getTime());
           // Data
           for (let area in res.huntingData) {
             let areaData = res.huntingData[area];
             this.data.push(areaData);
           }
-          storage.setSS('dsrca_ffxiv-cache', JSON.stringify(this.data));
-          console.log('[DSRCA] Latest data loaded');
           this.loading = false;
         } else {
           throw new Error('Response wrong status');
@@ -145,16 +138,7 @@ export default {
     },
   },
   mounted() {
-    const cacheDate = storage.getSS('dsrca_ffxiv-last-update');
-    const cacheData = storage.getSS('dsrca_ffxiv-cache');
-    if (cacheDate && cacheData) {
-      this.lastUpdate = new Date(Number.parseInt(cacheDate));
-      this.data = JSON.parse(cacheData);
-      console.log('[DSRCA] Data cache loaded');
-      this.loading = false;
-    } else {
-      this.fetchData();
-    }
+    this.fetchData();
   },
 };
 </script>
