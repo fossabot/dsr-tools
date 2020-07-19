@@ -70,6 +70,7 @@ export default {
   name: 'FFXIV',
   data() {
     return {
+      version: '1',
       loading: true,
       data: [],
       lastUpdate: new Date(0),
@@ -110,23 +111,19 @@ export default {
   },
   methods: {
     async fetchData() {
-      try {
-        const response = await axios.get(CDN('./ffxiv/cn-hunting.json'));
-        if (response.status === 200) {
-          const res = response.data;
-          // Update time
-          this.lastUpdate = new Date(res.lastUpdate);
-          // Data
-          for (let area in res.huntingData) {
-            let areaData = res.huntingData[area];
-            this.data.push(areaData);
-          }
-          this.loading = false;
-        } else {
-          throw new Error('Response wrong status');
+      const response = await axios.get(CDN('./ffxiv/cn-hunting.json', this.version));
+      if (response.status === 200) {
+        const res = response.data;
+        // Update time
+        this.lastUpdate = new Date(res.lastUpdate);
+        // Data
+        for (let area in res.huntingData) {
+          let areaData = res.huntingData[area];
+          this.data.push(areaData);
         }
-      } catch (e) {
-        console.warn(e);
+        this.loading = false;
+      } else {
+        console.error('[DSRCA] Response wrong status');
       }
     },
     handleFetch() {
@@ -137,7 +134,25 @@ export default {
       storage.setLS('dsrca_ffxiv-tab', val);
     },
   },
-  mounted() {
+  async mounted() {
+    // Find version cache in sessionStorage
+    let version = storage.getSS('dsrca_cdn-version');
+    if (version) {
+      // Version cache found
+      this.version = version;
+    } else {
+      // Get latest version
+      const response = await axios.get('https://data.jsdelivr.com/v1/package/gh/amzrk2/cdn-stcapi');
+      if (response.status === 200) {
+        let v = response.data.versions[0];
+        if (v) {
+          this.version = v;
+          storage.setSS('dsrca_cdn-version', v);
+        }
+      } else {
+        console.error('[DSRCA] Response wrong status');
+      }
+    }
     this.fetchData();
   },
 };
