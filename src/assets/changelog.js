@@ -1,10 +1,16 @@
 export default [
   {
+    version: 'v3.0.2',
+    date: '2020-07-19',
+    logs: ['默认强制拉取最新版本数据规避缓存影响'],
+    active: true,
+    latest: true,
+  },
+  {
     version: 'v3.0.1-hotfix',
     date: '2020-07-14',
     logs: ['修复缓存时间记录错误的问题'],
-    active: true,
-    latest: true,
+    active: false,
   },
   {
     version: 'v3.0.1',

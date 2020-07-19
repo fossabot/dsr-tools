@@ -14,6 +14,10 @@
       <v-tab-item key="tab-0" value="tab-0">
         <v-container class="pa-10">
           <v-alert type="success">{{ formatedDate }}</v-alert>
+          <v-alert type="info">
+            在原标签页直接刷新页面将不会拉取更新数据
+            <v-btn color="white" class="text-trans ml-2" small @click="handleFetch">强制更新数据</v-btn>
+          </v-alert>
           <v-card class="mx-auto mt-10 pa-2">
             <v-list-item two-line v-for="(sec, index) of info" :key="`info-${index}`">
               <v-list-item-content>
@@ -88,7 +92,7 @@ export default {
         { title: '更新频率', text: '狩猎车相关数据为手动更新, 约 10-15 天同步一次', link: false },
         {
           title: '数据不刷新问题',
-          text: '数据更新后 CDN 缓存需要约 10-15 分钟全球刷新, 浏览器本地缓存最高可能需要 7 天刷新',
+          text: '数据更新后 CDN 缓存需要约 10-15 分钟全球刷新, 若出现问题则最高需要 12 小时',
           link: false,
         },
         { title: '错误反馈', text: '请使用右下角按钮直接进行客服提问反馈, 或至 NGA 原帖回帖反馈', link: false },
@@ -111,19 +115,36 @@ export default {
   },
   methods: {
     async fetchData() {
-      const response = await axios.get(CDN('./ffxiv/cn-hunting.json', this.version));
+      // Get latest version
+      const response = await axios.get('https://data.jsdelivr.com/v1/package/gh/amzrk2/cdn-stcapi');
       if (response.status === 200) {
-        const res = response.data;
-        // Update time
-        this.lastUpdate = new Date(res.lastUpdate);
-        // Data
-        for (let area in res.huntingData) {
-          let areaData = res.huntingData[area];
-          this.data.push(areaData);
+        let v = response.data.versions[0];
+        if (v) {
+          this.version = v;
         }
-        this.loading = false;
       } else {
         console.error('[DSRCA] Response wrong status');
+      }
+      try {
+        const response = await axios.get(CDN('./ffxiv/cn-hunting.json', this.version));
+        if (response.status === 200) {
+          const res = response.data;
+          // Update time
+          this.lastUpdate = new Date(res.lastUpdate);
+          storage.setSS('dsrca_ffxiv-last-update', this.lastUpdate.getTime());
+          // Data
+          for (let area in res.huntingData) {
+            let areaData = res.huntingData[area];
+            this.data.push(areaData);
+          }
+          storage.setSS('dsrca_ffxiv-cache', JSON.stringify(this.data));
+          console.log('[DSRCA] Latest data loaded');
+          this.loading = false;
+        } else {
+          throw new Error('Response wrong status');
+        }
+      } catch (e) {
+        console.error('[DSRCA]', e);
       }
     },
     handleFetch() {
@@ -135,25 +156,17 @@ export default {
     },
   },
   async mounted() {
-    // Find version cache in sessionStorage
-    let version = storage.getSS('dsrca_cdn-version');
-    if (version) {
-      // Version cache found
-      this.version = version;
+    const cacheDate = storage.getSS('dsrca_ffxiv-last-update');
+    const cacheData = storage.getSS('dsrca_ffxiv-cache');
+    if (cacheDate && cacheData) {
+      // If data cache founded
+      this.lastUpdate = new Date(Number.parseInt(cacheDate));
+      this.data = JSON.parse(cacheData);
+      console.log('[DSRCA] Data cache loaded');
+      this.loading = false;
     } else {
-      // Get latest version
-      const response = await axios.get('https://data.jsdelivr.com/v1/package/gh/amzrk2/cdn-stcapi');
-      if (response.status === 200) {
-        let v = response.data.versions[0];
-        if (v) {
-          this.version = v;
-          storage.setSS('dsrca_cdn-version', v);
-        }
-      } else {
-        console.error('[DSRCA] Response wrong status');
-      }
+      this.fetchData();
     }
-    this.fetchData();
   },
 };
 </script>
