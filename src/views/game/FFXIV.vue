@@ -89,6 +89,11 @@ export default {
       ],
       info: [
         { title: '更新频率', text: '狩猎车相关数据为手动更新, 约 10-15 天同步一次', link: false },
+        {
+          title: '数据不刷新问题',
+          text: '数据更新后 CDN 缓存需要约 10-15 分钟全球刷新, 浏览器本地缓存最高可能需要 7 天刷新',
+          link: false,
+        },
         { title: '错误反馈', text: '请使用右下角按钮直接进行客服提问反馈, 或至 NGA 原帖回帖反馈', link: false },
         { title: '感谢访问', text: '如果觉得本站对您有所帮助还请多多分享, 用户的使用是我更新的最大动力', link: false },
         { title: 'NGA 原帖', text: 'https://nga.178.com/read.php?tid=20339590', link: true },
