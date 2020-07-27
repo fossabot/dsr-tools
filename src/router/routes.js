@@ -16,6 +16,14 @@ const routes = [
   project,
   about,
   {
+    path: '/temp/',
+    component: () => import(/* webpackChunkName: "temp" */ '@/views/Temp.vue'),
+    meta: {
+      name: '临时信息发布',
+      icon: 'mdi-clipboard-pulse',
+    },
+  },
+  {
     path: '/legacy/',
     meta: {
       name: '访问旧版',

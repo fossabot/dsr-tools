@@ -11,6 +11,8 @@
         <v-progress-circular indeterminate color="primary"></v-progress-circular>
       </v-overlay>
 
+      <temp-alert info="对拉诺西亚车头组的相关声明"></temp-alert>
+
       <v-tab-item key="tab-0" value="tab-0">
         <v-container class="pa-10">
           <v-alert type="success">{{ formatedDate }}</v-alert>
@@ -70,8 +72,13 @@ import axios from 'axios';
 import CDN from '@/plugins/cdn';
 import storage from '@/plugins/storage';
 
+import TempAlert from '../../components/TempAlert.vue';
+
 export default {
   name: 'FFXIV',
+  components: {
+    TempAlert,
+  },
   data() {
     return {
       version: '1',
