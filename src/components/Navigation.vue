@@ -14,7 +14,8 @@
         </v-list-item-icon>
         <v-list-item-content>
           <v-list-item-title>
-            {{ route.meta.name }}
+            <template v-if="route.meta.short">{{ route.meta.short }}</template>
+            <template v-else>{{ route.meta.name }}</template>
             <v-icon small v-if="route.meta.ext">mdi-open-in-new</v-icon>
           </v-list-item-title>
         </v-list-item-content>
@@ -31,7 +32,8 @@
             <v-icon>{{ route.meta.icon }}</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title>{{ route.meta.name }}</v-list-item-title>
+            <v-list-item-title v-if="route.meta.short">{{ route.meta.short }}</v-list-item-title>
+            <v-list-item-title v-else>{{ route.meta.name }}</v-list-item-title>
           </v-list-item-content>
         </template>
         <v-list-item
@@ -43,7 +45,8 @@
         >
           <v-list-item-content>
             <v-list-item-title>
-              {{ child.meta.name }}
+              <template v-if="child.meta.short">{{ child.meta.short }}</template>
+              <template v-else>{{ child.meta.name }}</template>
               <v-icon small v-if="child.meta.ext">mdi-open-in-new</v-icon>
             </v-list-item-title>
           </v-list-item-content>

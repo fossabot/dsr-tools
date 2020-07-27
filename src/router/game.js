@@ -9,12 +9,12 @@ export default {
     {
       path: '/game/minecraft/',
       component: () => import(/* webpackChunkName: "minecraft" */ '@/views/game/Minecraft.vue'),
-      meta: { name: 'Minecraft 整合包', icon: 'mdi-minecraft' },
+      meta: { name: 'Minecraft DSRCA 整合包', short: 'MC 整合包', icon: 'mdi-minecraft' },
     },
     {
       path: '/game/ffxiv/',
       component: () => import(/* webpackChunkName: "ffxiv" */ '@/views/game/FFXIV.vue'),
-      meta: { name: 'FFXIV 狩猎时间表', icon: 'mdi-account-supervisor-circle' },
+      meta: { name: 'FF14 国服狩猎车时间表', short: 'FF14 狩猎时间表', icon: 'mdi-account-supervisor-circle' },
     },
   ],
 };
