@@ -2,7 +2,7 @@ export default [
   {
     version: 'v3.0.3',
     date: '2020-07-27',
-    logs: ['修改路由滚动行为', '移除对 jsDelive API 的使用', '修复 TempAlert 组件 sessionStorage 使用问题'],
+    logs: ['修改路由滚动行为', '移除对 jsDelivr API 的使用', '修复 TempAlert 组件 sessionStorage 使用问题'],
     active: true,
     latest: true,
   },
