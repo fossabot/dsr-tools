@@ -16,10 +16,6 @@
       <v-tab-item key="tab-0" value="tab-0">
         <v-container class="pa-10">
           <v-alert type="success">{{ formatedDate }}</v-alert>
-          <v-alert type="info">
-            在原标签页直接刷新页面将不会拉取更新数据
-            <v-btn color="white" class="text-trans ml-2" small @click="handleFetch">强制更新数据</v-btn>
-          </v-alert>
           <v-card class="mx-auto mt-10 pa-2">
             <v-list-item two-line v-for="(sec, index) of info" :key="`info-${index}`">
               <v-list-item-content>
@@ -81,7 +77,6 @@ export default {
   },
   data() {
     return {
-      version: '1',
       loading: true,
       data: [],
       lastUpdate: new Date(0),
@@ -122,41 +117,25 @@ export default {
   },
   methods: {
     async fetchData() {
-      // Get latest version
-      const response = await axios.get('https://data.jsdelivr.com/v1/package/gh/amzrk2/cdn-stcapi');
-      if (response.status === 200) {
-        let v = response.data.versions[0];
-        if (v) {
-          this.version = v;
-        }
-      } else {
-        console.error('[DSRCA] Response wrong status');
-      }
       try {
-        const response = await axios.get(CDN('./ffxiv/cn-hunting.json', this.version));
-        if (response.status === 200) {
-          const res = response.data;
-          // Update time
-          this.lastUpdate = new Date(res.lastUpdate);
-          storage.setSS('dsrca_ffxiv-last-update', this.lastUpdate.getTime());
-          // Data
-          for (let area in res.huntingData) {
-            let areaData = res.huntingData[area];
-            this.data.push(areaData);
-          }
-          storage.setSS('dsrca_ffxiv-cache', JSON.stringify(this.data));
-          console.log('[DSRCA] Latest data loaded');
-          this.loading = false;
-        } else {
-          throw new Error('Response wrong status');
+        const response = await axios.get(CDN('./ffxiv/cn-hunting.json', '1'));
+        const res = response.data;
+        // Update time
+        this.lastUpdate = new Date(res.lastUpdate);
+        storage.setSS('dsrca_ffxiv-last-update', this.lastUpdate.getTime());
+        // Data
+        for (let area in res.huntingData) {
+          let areaData = res.huntingData[area];
+          this.data.push(areaData);
         }
+        storage.setSS('dsrca_ffxiv-cache', JSON.stringify(this.data));
+        console.log('[DSRCA] Latest data loaded');
+        setTimeout(() => {
+          this.loading = false;
+        }, 500);
       } catch (e) {
         console.error('[DSRCA]', e);
       }
-    },
-    handleFetch() {
-      this.loading = true;
-      this.fetchData();
     },
     handleTabChange(val) {
       storage.setLS('dsrca_ffxiv-tab', val);
@@ -170,7 +149,9 @@ export default {
       this.lastUpdate = new Date(Number.parseInt(cacheDate));
       this.data = JSON.parse(cacheData);
       console.log('[DSRCA] Data cache loaded');
-      this.loading = false;
+      setTimeout(() => {
+        this.loading = false;
+      }, 500);
     } else {
       this.fetchData();
     }

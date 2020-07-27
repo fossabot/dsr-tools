@@ -6,6 +6,7 @@
     transition="scale-transition"
     icon="mdi-alert"
     v-model="display"
+    dense
   >
     {{ info }}
     <v-btn color="white" class="text-error ml-2" small @click="$router.push('/temp/')">查看详情</v-btn>
@@ -27,7 +28,7 @@ export default {
   },
   mounted() {
     const alertStatus = storage.getSS('dsrca_temp-alert');
-    if (!alertStatus) {
+    if (alertStatus === 'true' || !alertStatus) {
       this.display = true;
     }
   },
