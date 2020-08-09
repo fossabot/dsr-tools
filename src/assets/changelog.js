@@ -1,5 +1,12 @@
 export default [
   {
+    version: 'v3.1.0',
+    date: '2020-08-09',
+    logs: ['添加本季番组模块'],
+    active: true,
+    latest: true
+  },
+  {
     version: 'v3.0.3',
     date: '2020-07-27',
     logs: [
@@ -7,8 +14,7 @@ export default [
       '移除对 jsDelivr API 的使用',
       '修复 TempAlert 组件 sessionStorage 使用问题'
     ],
-    active: true,
-    latest: true
+    active: false
   },
   {
     version: 'v3.0.2',

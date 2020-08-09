@@ -4,9 +4,12 @@
       <h3>{{ todate }} {{ today }}</h3>
       <span>本季度共 {{ bangumiCount }} 部番组 | 今日上映 {{ todayCount }} 部</span>
     </div>
+    <v-overlay absolute :opacity="1" color="white" :value="!status">
+      <v-progress-circular indeterminate color="primary"></v-progress-circular>
+    </v-overlay>
     <div class="content" v-if="status">
       <div class="day" v-for="date of animeData" :key="date.weekday.id">
-        <div class="date">{{ date.weekday.cn }}</div>
+        <div :class="['date', {'today': today === date.weekday.cn}]">{{ date.weekday.cn }}</div>
         <a v-for="item of date.items" :key="item.id" :href="item.url | filtHttps" target="_blank">
           <div class="anime">
             <img class="anime-img" :src="item.images.large" />
@@ -174,6 +177,12 @@ $text-bg: rgba(0, 0, 0, 0.5);
   height: 3rem;
   line-height: 3rem;
   text-align: center;
+  background-color: $color-primary;
+  color: #fffffd;
+
+  &.today {
+    background-color: $color-info;
+  }
 }
 
 .anime {
@@ -182,6 +191,7 @@ $text-bg: rgba(0, 0, 0, 0.5);
   height: $grid-size;
   transition: $transition;
   user-select: none;
+  background-color: #eeeeee;
 
   .anime-img {
     display: block;
