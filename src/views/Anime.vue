@@ -1,19 +1,20 @@
 <template>
   <div class="fill-height">
     <div class="header">
-      <h3>2020年08月09日 星期日</h3>
-      <span>本季度共 59 部番组 | 今日上映 7 部</span>
+      <h3>{{ todate }} {{ today }}</h3>
+      <span>本季度共 {{ bangumiCount }} 部番组 | 今日上映 {{ todayCount }} 部</span>
     </div>
-    <div class="content">
-      <div class="day" v-for="date of animeData" :key="date.day">
-        <div class="date">{{ date.day }}</div>
-        <a v-for="item of date.list" :key="item.id" :href="item.link" target="_blank">
+    <div class="content" v-if="status">
+      <div class="day" v-for="date of animeData" :key="date.weekday.id">
+        <div class="date">{{ date.weekday.cn }}</div>
+        <a v-for="item of date.items" :key="item.id" :href="item.url | filtHttps" target="_blank">
           <div class="anime">
-            <img class="anime-img" :src="item.cover" />
+            <img class="anime-img" :src="item.images.large" />
             <div class="anime-name">
-              <div class="name-zh">{{ item.zhName }}</div>
-              <div class="name-ja">{{ item.jaName}}</div>
+              <div class="name-zh">{{ item.name_cn }}</div>
+              <div class="name-ja">{{ item.name }}</div>
             </div>
+            <div class="anime-rating">{{ item.rating.score | filtRating }}</div>
           </div>
         </a>
       </div>
@@ -22,197 +23,81 @@
 </template>
 
 <script>
-// import axios from 'axios';
+import axios from 'axios';
 
 export default {
   name: 'Anime',
   data() {
     return {
-      animeData: [
-        {
-          day: '星期日',
-          list: [
-            {
-              id: '277954',
-              zhName: '我的青春恋爱物语果然有问题 完',
-              jaName: 'やはり俺の青春ラブコメはまちがっている。完',
-              cover: '//lain.bgm.tv/pic/cover/c/ba/69/277954_s8qHA.jpg',
-              link: 'https://bgm.tv/subject/277954',
-            },
-            {
-              id: '277954',
-              zhName: '我的青春恋爱物语果然有问题 完',
-              jaName: 'やはり俺の青春ラブコメはまちがっている。完',
-              cover: '//lain.bgm.tv/pic/cover/c/ba/69/277954_s8qHA.jpg',
-              link: 'https://bgm.tv/subject/277954',
-            },
-            {
-              id: '277954',
-              zhName: '我的青春恋爱物语果然有问题 完',
-              jaName: 'やはり俺の青春ラブコメはまちがっている。完',
-              cover: '//lain.bgm.tv/pic/cover/c/ba/69/277954_s8qHA.jpg',
-              link: 'https://bgm.tv/subject/277954',
-            },
-          ],
-        },
-        {
-          day: '星期一',
-          list: [
-            {
-              id: '277954',
-              zhName: '我的青春恋爱物语果然有问题 完',
-              jaName: 'やはり俺の青春ラブコメはまちがっている。完',
-              cover: '//lain.bgm.tv/pic/cover/c/ba/69/277954_s8qHA.jpg',
-              link: 'https://bgm.tv/subject/277954',
-            },
-            {
-              id: '277954',
-              zhName: '我的青春恋爱物语果然有问题 完',
-              jaName: 'やはり俺の青春ラブコメはまちがっている。完',
-              cover: '//lain.bgm.tv/pic/cover/c/ba/69/277954_s8qHA.jpg',
-              link: 'https://bgm.tv/subject/277954',
-            },
-            {
-              id: '277954',
-              zhName: '我的青春恋爱物语果然有问题 完',
-              jaName: 'やはり俺の青春ラブコメはまちがっている。完',
-              cover: '//lain.bgm.tv/pic/cover/c/ba/69/277954_s8qHA.jpg',
-              link: 'https://bgm.tv/subject/277954',
-            },
-          ],
-        },
-        {
-          day: '星期二',
-          list: [
-            {
-              id: '277954',
-              zhName: '我的青春恋爱物语果然有问题 完',
-              jaName: 'やはり俺の青春ラブコメはまちがっている。完',
-              cover: '//lain.bgm.tv/pic/cover/c/ba/69/277954_s8qHA.jpg',
-              link: 'https://bgm.tv/subject/277954',
-            },
-            {
-              id: '277954',
-              zhName: '我的青春恋爱物语果然有问题 完',
-              jaName: 'やはり俺の青春ラブコメはまちがっている。完',
-              cover: '//lain.bgm.tv/pic/cover/c/ba/69/277954_s8qHA.jpg',
-              link: 'https://bgm.tv/subject/277954',
-            },
-            {
-              id: '277954',
-              zhName: '我的青春恋爱物语果然有问题 完',
-              jaName: 'やはり俺の青春ラブコメはまちがっている。完',
-              cover: '//lain.bgm.tv/pic/cover/c/ba/69/277954_s8qHA.jpg',
-              link: 'https://bgm.tv/subject/277954',
-            },
-          ],
-        },
-        {
-          day: '星期三',
-          list: [
-            {
-              id: '277954',
-              zhName: '我的青春恋爱物语果然有问题 完',
-              jaName: 'やはり俺の青春ラブコメはまちがっている。完',
-              cover: '//lain.bgm.tv/pic/cover/c/ba/69/277954_s8qHA.jpg',
-              link: 'https://bgm.tv/subject/277954',
-            },
-            {
-              id: '277954',
-              zhName: '我的青春恋爱物语果然有问题 完',
-              jaName: 'やはり俺の青春ラブコメはまちがっている。完',
-              cover: '//lain.bgm.tv/pic/cover/c/ba/69/277954_s8qHA.jpg',
-              link: 'https://bgm.tv/subject/277954',
-            },
-            {
-              id: '277954',
-              zhName: '我的青春恋爱物语果然有问题 完',
-              jaName: 'やはり俺の青春ラブコメはまちがっている。完',
-              cover: '//lain.bgm.tv/pic/cover/c/ba/69/277954_s8qHA.jpg',
-              link: 'https://bgm.tv/subject/277954',
-            },
-          ],
-        },
-        {
-          day: '星期四',
-          list: [
-            {
-              id: '277954',
-              zhName: '我的青春恋爱物语果然有问题 完',
-              jaName: 'やはり俺の青春ラブコメはまちがっている。完',
-              cover: '//lain.bgm.tv/pic/cover/c/ba/69/277954_s8qHA.jpg',
-              link: 'https://bgm.tv/subject/277954',
-            },
-            {
-              id: '277954',
-              zhName: '我的青春恋爱物语果然有问题 完',
-              jaName: 'やはり俺の青春ラブコメはまちがっている。完',
-              cover: '//lain.bgm.tv/pic/cover/c/ba/69/277954_s8qHA.jpg',
-              link: 'https://bgm.tv/subject/277954',
-            },
-            {
-              id: '277954',
-              zhName: '我的青春恋爱物语果然有问题 完',
-              jaName: 'やはり俺の青春ラブコメはまちがっている。完',
-              cover: '//lain.bgm.tv/pic/cover/c/ba/69/277954_s8qHA.jpg',
-              link: 'https://bgm.tv/subject/277954',
-            },
-          ],
-        },
-        {
-          day: '星期五',
-          list: [
-            {
-              id: '277954',
-              zhName: '我的青春恋爱物语果然有问题 完',
-              jaName: 'やはり俺の青春ラブコメはまちがっている。完',
-              cover: '//lain.bgm.tv/pic/cover/c/ba/69/277954_s8qHA.jpg',
-              link: 'https://bgm.tv/subject/277954',
-            },
-            {
-              id: '277954',
-              zhName: '我的青春恋爱物语果然有问题 完',
-              jaName: 'やはり俺の青春ラブコメはまちがっている。完',
-              cover: '//lain.bgm.tv/pic/cover/c/ba/69/277954_s8qHA.jpg',
-              link: 'https://bgm.tv/subject/277954',
-            },
-            {
-              id: '277954',
-              zhName: '我的青春恋爱物语果然有问题 完',
-              jaName: 'やはり俺の青春ラブコメはまちがっている。完',
-              cover: '//lain.bgm.tv/pic/cover/c/ba/69/277954_s8qHA.jpg',
-              link: 'https://bgm.tv/subject/277954',
-            },
-          ],
-        },
-        {
-          day: '星期六',
-          list: [
-            {
-              id: '277954',
-              zhName: '我的青春恋爱物语果然有问题 完',
-              jaName: 'やはり俺の青春ラブコメはまちがっている。完',
-              cover: '//lain.bgm.tv/pic/cover/c/ba/69/277954_s8qHA.jpg',
-              link: 'https://bgm.tv/subject/277954',
-            },
-            {
-              id: '277954',
-              zhName: '我的青春恋爱物语果然有问题 完',
-              jaName: 'やはり俺の青春ラブコメはまちがっている。完',
-              cover: '//lain.bgm.tv/pic/cover/c/ba/69/277954_s8qHA.jpg',
-              link: 'https://bgm.tv/subject/277954',
-            },
-            {
-              id: '277954',
-              zhName: '我的青春恋爱物语果然有问题 完',
-              jaName: 'やはり俺の青春ラブコメはまちがっている。完',
-              cover: '//lain.bgm.tv/pic/cover/c/ba/69/277954_s8qHA.jpg',
-              link: 'https://bgm.tv/subject/277954',
-            },
-          ],
-        },
-      ],
+      status: false,
+      animeData: [],
     };
+  },
+  filters: {
+    filtHttps(val) {
+      return val.replace(/^http/, 'https');
+    },
+    filtRating(val) {
+      if (Number.isNaN(val)) {
+        return '-.-';
+      } else {
+        return val;
+      }
+    },
+  },
+  computed: {
+    today() {
+      const date = new Date();
+      const dateArr = ['日', '一', '二', '三', '四', '五', '六'];
+      return `星期${dateArr[date.getDay()]}`;
+    },
+    todate() {
+      const date = new Date();
+      return `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`;
+    },
+    bangumiCount() {
+      if (this.status) {
+        let count = 0;
+        this.animeData.forEach((val) => {
+          count += val.items.length;
+        });
+        return count;
+      } else {
+        return '-';
+      }
+    },
+    todayCount() {
+      if (this.status) {
+        const date = new Date();
+        if (date.getDay() === 0) {
+          return this.animeData[6].items.length;
+        } else {
+          return this.animeData[date.getDay() - 1].items.length;
+        }
+      }
+      return '-';
+    },
+  },
+  methods: {
+    async fetchData() {
+      try {
+        const res = await axios.get('https://worker.amzrk2.cc/bgm/calendar');
+        res.data.forEach((val) => {
+          val.items.forEach((val) => {
+            if (!val.rating) {
+              val.rating = { score: NaN };
+            }
+          });
+        });
+        this.animeData = res.data;
+        this.status = true;
+      } catch (e) {
+        console.error(e);
+      }
+    },
+  },
+  mounted() {
+    this.fetchData();
   },
 };
 </script>
@@ -222,6 +107,8 @@ $grid-size: 8rem;
 $grid-size-hover: 11.2rem;
 $space-size: 0.2rem;
 $transition: all 150ms ease-out;
+$text-color: rgba(255, 255, 255, 0.8);
+$text-bg: rgba(0, 0, 0, 0.5);
 
 .header {
   display: flex;
@@ -306,7 +193,7 @@ $transition: all 150ms ease-out;
 
   .anime-name {
     position: absolute;
-    color: rgba(255, 255, 255, 0.8);
+    color: $text-color;
     bottom: 0;
     width: 100%;
     height: 2.1rem;
@@ -314,7 +201,7 @@ $transition: all 150ms ease-out;
     overflow: hidden;
     text-overflow: clip;
     padding: 0.2rem;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: $text-bg;
     opacity: 1;
     transition: $transition;
 
@@ -332,11 +219,26 @@ $transition: all 150ms ease-out;
     }
   }
 
+  .anime-rating {
+    position: absolute;
+    color: $text-color;
+    top: 0;
+    right: 0;
+    white-space: nowrap;
+    padding: 0.2rem;
+    background-color: $text-bg;
+    font-size: 0.7rem;
+    line-height: 0.85rem;
+    opacity: 1;
+    transition: $transition;
+  }
+
   &:hover {
     height: $grid-size-hover;
     cursor: pointer;
 
-    .anime-name {
+    .anime-name,
+    .anime-rating {
       opacity: 0;
       transition: $transition;
     }
