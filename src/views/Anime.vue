@@ -28,6 +28,7 @@
 <script>
 import axios from 'axios';
 import CDN_OSS_SUBJECT from '../plugins/bangumi/imageCDN';
+import storage from '../plugins/storage';
 
 export default {
   name: 'Anime',
@@ -114,19 +115,38 @@ export default {
       this.animeData.forEach((val) => {
         val.items.forEach((val) => {
           const image = CDN_OSS_SUBJECT(val.images.common.replace(/^http/, 'https'), this.cdnHash);
-          // If has CDN cache
-          if (image.match(/^https:\/\/cdn\.jsdelivr\.net/)) {
-            val.images = image;
-          } else {
-            val.images = val.images.large;
-          }
+          val.images = image;
         });
       });
       this.status = true;
     },
+    storeCache() {
+      storage.setLS('dsrca_anime-cache', JSON.stringify(this.animeData));
+      const date = new Date();
+      const time = date.getTime();
+      storage.setLS('dsrca_anime-cache-date', JSON.stringify(time));
+    },
   },
-  mounted() {
-    this.applyCDN();
+  async mounted() {
+    const date = new Date();
+    const time = date.getTime();
+    try {
+      const cacheTime = JSON.parse(storage.getLS('dsrca_anime-cache-date'));
+      if (time - cacheTime < 86400000) {
+        const cache = JSON.parse(storage.getLS('dsrca_anime-cache'));
+        if (cache.length > 1) {
+          this.animeData = cache;
+          this.status = true;
+          return;
+        }
+      }
+      await this.applyCDN();
+      this.storeCache();
+    } catch (e) {
+      console.error(e);
+      await this.applyCDN();
+      this.storeCache();
+    }
   },
 };
 </script>
