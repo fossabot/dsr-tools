@@ -11,7 +11,7 @@
         <v-progress-circular indeterminate color="primary"></v-progress-circular>
       </v-overlay>
 
-      <temp-alert info="提供七个 FF14 国服魔矿车活动互换上车位"></temp-alert>
+      <!-- <temp-alert info="提供七个 FF14 国服魔矿车活动互换上车位"></temp-alert> -->
 
       <v-tab-item key="tab-0" value="tab-0">
         <v-container class="pa-10">
@@ -67,13 +67,13 @@
 import axios from 'axios';
 import CDN from '@/plugins/cdn';
 import storage from '@/plugins/storage';
-import TempAlert from '../../components/TempAlert.vue';
+// import TempAlert from '../../components/TempAlert.vue';
 
 export default {
   name: 'FFXIV',
-  components: {
-    TempAlert,
-  },
+  // components: {
+  //   TempAlert,
+  // },
   data() {
     return {
       loading: true,
@@ -96,8 +96,16 @@ export default {
           text: '数据更新后 CDN 缓存需要约 10-15 分钟全球刷新, 若出现问题则最高需要 12 小时',
           link: false,
         },
-        { title: '错误反馈', text: '请使用右下角按钮直接进行客服提问反馈, 或至 NGA 原帖回帖反馈', link: false },
-        { title: '感谢访问', text: '如果觉得本站对您有所帮助还请多多分享, 用户的使用是我更新的最大动力', link: false },
+        {
+          title: '错误反馈',
+          text: '请使用右下角按钮直接进行客服提问反馈, 或至 NGA 原帖回帖反馈',
+          link: false,
+        },
+        {
+          title: '感谢访问',
+          text: '如果觉得本站对您有所帮助还请多多分享, 用户的使用是我更新的最大动力',
+          link: false,
+        },
         { title: 'NGA 原帖', text: 'https://nga.178.com/read.php?tid=20339590', link: true },
       ],
     };
