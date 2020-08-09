@@ -2,7 +2,7 @@ export default [
   {
     version: 'v3.1.0',
     date: '2020-08-09',
-    logs: ['添加本季番组模块'],
+    logs: ['添加本季番组模块', '添加番组模块图片 CDN', '添加番组模块日历资源缓存'],
     active: true,
     latest: true
   },
