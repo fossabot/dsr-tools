@@ -12,7 +12,7 @@
         <div :class="['date', {'today': today === date.weekday.cn}]">{{ date.weekday.cn }}</div>
         <a v-for="item of date.items" :key="item.id" :href="item.url | filtHttps" target="_blank">
           <div class="anime">
-            <img class="anime-img" :src="item.images.large" />
+            <img class="anime-img" :src="item.images" />
             <div class="anime-name">
               <div class="name-zh">{{ item.name_cn }}</div>
               <div class="name-ja">{{ item.name }}</div>
@@ -27,6 +27,7 @@
 
 <script>
 import axios from 'axios';
+import CDN_OSS_SUBJECT from '../plugins/bangumi/imageCDN';
 
 export default {
   name: 'Anime',
@@ -34,6 +35,7 @@ export default {
     return {
       status: false,
       animeData: [],
+      cdnHash: {},
     };
   },
   filters: {
@@ -82,6 +84,16 @@ export default {
     },
   },
   methods: {
+    async fetchHash() {
+      try {
+        const hash = await axios.get(
+          'https://cdn.jsdelivr.net/gh/czy0729/Bangumi-OSS@master/hash/subject.json'
+        );
+        this.cdnHash = hash.data;
+      } catch (e) {
+        console.error(e);
+      }
+    },
     async fetchData() {
       try {
         const res = await axios.get('https://worker.amzrk2.cc/bgm/calendar');
@@ -93,14 +105,28 @@ export default {
           });
         });
         this.animeData = res.data;
-        this.status = true;
       } catch (e) {
         console.error(e);
       }
     },
+    async applyCDN() {
+      await Promise.all([this.fetchHash(), this.fetchData()]);
+      this.animeData.forEach((val) => {
+        val.items.forEach((val) => {
+          const image = CDN_OSS_SUBJECT(val.images.common.replace(/^http/, 'https'), this.cdnHash);
+          // If has CDN cache
+          if (image.match(/^https:\/\/cdn\.jsdelivr\.net/)) {
+            val.images = image;
+          } else {
+            val.images = val.images.large;
+          }
+        });
+      });
+      this.status = true;
+    },
   },
   mounted() {
-    this.fetchData();
+    this.applyCDN();
   },
 };
 </script>
