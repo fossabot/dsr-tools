@@ -302,4 +302,32 @@ $text-bg: rgba(0, 0, 0, 0.5);
     }
   }
 }
+
+$grid-size-mobile: 6rem;
+
+@media screen and (max-width: $responsive-width) {
+  .content {
+    overflow-x: scroll;
+    justify-content: start;
+  }
+
+  .day {
+    width: $grid-size-mobile;
+  }
+
+  .anime {
+    width: $grid-size-mobile;
+    height: $grid-size-mobile;
+
+    &:hover {
+      height: $grid-size-mobile;
+      cursor: pointer;
+
+      .anime-name,
+      .anime-rating {
+        opacity: 1;
+      }
+    }
+  }
+}
 </style>
