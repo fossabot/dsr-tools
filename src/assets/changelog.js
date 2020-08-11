@@ -1,10 +1,16 @@
 export default [
   {
+    version: 'v3.1.1',
+    date: '2020-08-09',
+    logs: ['优化本季番组模块数据显示', '优化本季番组模块移动端布局'],
+    active: true,
+    latest: true
+  },
+  {
     version: 'v3.1.0',
     date: '2020-08-09',
     logs: ['添加本季番组模块', '添加番组模块图片 CDN', '添加番组模块日历资源缓存'],
-    active: true,
-    latest: true
+    active: false
   },
   {
     version: 'v3.0.3',

@@ -44,10 +44,12 @@ export default {
       return val.replace(/^http/, 'https');
     },
     filtRating(val) {
-      if (Number.isNaN(val)) {
+      if (val === -1) {
         return '-.-';
+      } else if (Math.floor(val) === val) {
+        return `${val}.0`;
       } else {
-        return val;
+        return `${val}`;
       }
     },
   },
@@ -101,7 +103,7 @@ export default {
         res.data.forEach((val) => {
           val.items.forEach((val) => {
             if (!val.rating) {
-              val.rating = { score: NaN };
+              val.rating = { score: -1 };
             }
           });
         });
