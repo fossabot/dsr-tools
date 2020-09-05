@@ -10,7 +10,7 @@
             </v-list-item-avatar>
             <v-list-item-content>
               <v-list-item-title class="headline">DSRKafuU</v-list-item-title>
-              <v-list-item-subtitle>console.log(`amzrk2`);</v-list-item-subtitle>
+              <v-list-item-subtitle>かふうです</v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
           <v-img :src="CDN('./about/82576224_p0.webp')"></v-img>
