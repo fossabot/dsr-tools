@@ -6,7 +6,9 @@
         <v-card class="mx-4">
           <v-list-item>
             <v-list-item-avatar>
-              <img :src="CDN('./about/mrk_square.webp')" />
+              <img
+                src="https://cdn.jsdelivr.net/gh/amzrk2/cdn-stcapi@1.3.0/amzrk2/kitashirakawa_tamako_256p.jpg"
+              />
             </v-list-item-avatar>
             <v-list-item-content>
               <v-list-item-title class="headline">DSRKafuU</v-list-item-title>
