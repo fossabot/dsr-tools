@@ -1,9 +1,9 @@
 <template>
   <v-container fluid class="pt-10 pb-15 pr-10">
-    <v-timeline v-for="item of changelog" :key="item.version" dense align-top>
-      <v-timeline-item fill-dot :small="!item.latest" color="info">
+    <v-timeline v-for="(item, index) of changelog" :key="item.version" dense align-top>
+      <v-timeline-item fill-dot :small="index!==0" color="info">
         <template v-slot:icon>
-          <v-icon dark :small="!item.latest" v-text="item.latest?'mdi-check':'mdi-history'"></v-icon>
+          <v-icon dark :small="index!==0" v-text="index===0?'mdi-check':'mdi-history'"></v-icon>
         </template>
         <v-card class="elevation-2">
           <v-card-title class="py-2 px-4">
@@ -15,7 +15,7 @@
               depressed
               small
               color="info"
-              @click="item.active=!item.active"
+              @click="handleItemClick(index)"
               v-text="item.active?'关闭详情':'查看详情'"
             ></v-btn>
           </v-card-title>
@@ -45,6 +45,11 @@ export default {
     return {
       changelog,
     };
+  },
+  methods: {
+    handleItemClick(index) {
+      this.$set(this.changelog[index], 'active', !this.changelog[index].active);
+    },
   },
 };
 </script>
