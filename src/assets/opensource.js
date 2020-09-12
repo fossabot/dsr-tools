@@ -2,41 +2,41 @@ export default [
   {
     title: 'Bangumi-OSS',
     license: 'UNKNOWN',
-    link: 'https://github.com/czy0729/Bangumi-OSS'
+    link: 'https://github.com/czy0729/Bangumi-OSS',
   },
   {
     title: 'vue',
     license: 'MIT License',
-    link: 'https://github.com/vuejs/vue'
+    link: 'https://github.com/vuejs/vue',
   },
   {
     title: 'vue-router',
     license: 'MIT License',
-    link: 'https://github.com/vuejs/vue-router'
+    link: 'https://github.com/vuejs/vue-router',
   },
   {
     title: 'vuetify',
     license: 'MIT License',
-    link: 'https://github.com/vuetifyjs/vuetify'
+    link: 'https://github.com/vuetifyjs/vuetify',
   },
   {
     title: 'vuex',
     license: 'MIT License',
-    link: 'https://github.com/vuejs/vuex'
+    link: 'https://github.com/vuejs/vuex',
   },
   {
     title: 'vue-cli',
     license: 'MIT License',
-    link: 'https://github.com/vuejs/vue-cli'
+    link: 'https://github.com/vuejs/vue-cli',
   },
   {
     title: 'eslint',
     license: 'MIT License',
-    link: 'https://github.com/eslint/eslint'
+    link: 'https://github.com/eslint/eslint',
   },
   {
     title: 'dart-sass',
     license: 'MIT License',
-    link: 'https://github.com/sass/dart-sass'
-  }
+    link: 'https://github.com/sass/dart-sass',
+  },
 ];

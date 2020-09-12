@@ -1,9 +1,14 @@
 export default [
   {
+    version: 'v3.2.0',
+    date: '2020-09-12',
+    logs: ['优化 Changelog 数据结构', '修复按钮未捕获 Exception'],
+    active: true,
+  },
+  {
     version: 'v3.1.1',
     date: '2020-08-09',
     logs: ['优化本季番组模块数据显示', '优化本季番组模块移动端布局'],
-    active: true,
   },
   {
     version: 'v3.1.0',

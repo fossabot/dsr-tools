@@ -8,7 +8,7 @@ DSRCA 站点项目，基于 Vue.js 和 Vuetify。
 
 ```bash
 npm install
-npm run serve # Compiles and hot-reloads for development
+npm start # Compiles and hot-reloads for development
 npm run build # Compiles and minifies for production
 ```
 

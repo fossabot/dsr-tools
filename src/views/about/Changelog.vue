@@ -11,13 +11,7 @@
             <span class="mx-2">-</span>
             <span class="subtitle-2">{{ item.date }}</span>
             <v-spacer />
-            <v-btn
-              depressed
-              small
-              color="info"
-              @click="handleItemClick(index)"
-              v-text="item.active?'关闭详情':'查看详情'"
-            ></v-btn>
+            <v-btn depressed small color="info" @click="handleItemClick(index)">切换详情</v-btn>
           </v-card-title>
           <v-expand-transition>
             <div v-if="item.active">
