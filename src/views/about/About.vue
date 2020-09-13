@@ -13,7 +13,9 @@
               <v-list-item-subtitle>{{ sub }}</v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
-          <v-img :src="CDN('./dsrca/about/82576224_p0.jpg')"></v-img>
+          <div class="sub-image">
+            <v-img :src="CDN('./dsrca/about/82576224_p0.jpg')"></v-img>
+          </div>
           <v-card-text class="text-center pb-0">{{ imageCopy }}</v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
@@ -113,5 +115,12 @@ export default {
 // Fix panel width issue
 .v-expansion-panels {
   width: unset !important;
+}
+
+.sub-image {
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 42.8125%;
 }
 </style>
