@@ -21,26 +21,30 @@
 
 <script>
 import CDN from '@/plugins/cdn';
+import axios from 'axios';
 
 export default {
   name: 'Home',
   data() {
     return {
-      title: 'お幸わせに。',
-      titleLinks: [
-        {
-          name: 'Bangumi',
-          src: 'https://bgm.tv/subject/277954',
-        },
-        {
-          name: 'bilibili',
-          src: 'https://www.bilibili.com/bangumi/media/md28228386/',
-        },
-      ],
+      title: '',
+      titleLinks: [],
     };
   },
   methods: {
     CDN,
+  },
+  async mounted() {
+    try {
+      const response = await axios.get(CDN('./dsrca/home/index.json'));
+      const res = response.data;
+      if (res.title) {
+        this.title = res.title;
+        this.titleLinks = res.links;
+      }
+    } catch (e) {
+      console.error('[DSRCA]', e);
+    }
   },
 };
 </script>
@@ -49,13 +53,13 @@ export default {
 .home {
   height: 100%;
 
-  background: url('https://cdn.jsdelivr.net/gh/amzrk2/cdn-stcapi@1/dsrca/home/cover-row.webp') no-repeat center center
-    fixed;
+  background: url('https://cdn.jsdelivr.net/gh/amzrk2/cdn-stcapi@1/dsrca/home/cover-row.webp')
+    no-repeat center center fixed;
   background-size: cover;
 
   @media screen and (max-width: 900px) {
-    background: url('https://cdn.jsdelivr.net/gh/amzrk2/cdn-stcapi@1/dsrca/home/cover-col.webp') no-repeat center center
-      fixed;
+    background: url('https://cdn.jsdelivr.net/gh/amzrk2/cdn-stcapi@1/dsrca/home/cover-col.webp')
+      no-repeat center center fixed;
     background-size: cover;
   }
 }

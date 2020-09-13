@@ -6,17 +6,15 @@
         <v-card class="mx-4">
           <v-list-item>
             <v-list-item-avatar>
-              <img
-                src="https://cdn.jsdelivr.net/gh/amzrk2/cdn-stcapi@1.3.0/amzrk2/kitashirakawa_tamako_256p.jpg"
-              />
+              <img :src="CDN('./amzrk2/kitashirakawa_tamako_256p.jpg')" />
             </v-list-item-avatar>
             <v-list-item-content>
-              <v-list-item-title class="headline">DSRKafuU</v-list-item-title>
-              <v-list-item-subtitle>かふうです</v-list-item-subtitle>
+              <v-list-item-title class="headline">{{ name }}</v-list-item-title>
+              <v-list-item-subtitle>{{ sub }}</v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
-          <v-img :src="CDN('./about/82576224_p0.webp')"></v-img>
-          <v-card-text class="text-center pb-0">Author: かの - Pixiv ID: 82576224</v-card-text>
+          <v-img :src="CDN('./dsrca/about/82576224_p0.jpg')"></v-img>
+          <v-card-text class="text-center pb-0">{{ imageCopy }}</v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn
@@ -86,6 +84,9 @@ export default {
   },
   data() {
     return {
+      name: 'DSRKafuU',
+      sub: 'かふうです',
+      imageCopy: 'Author: かの - Pixiv ID: 82576224',
       personalLinks: [
         { title: '个人页面', link: 'https://amzrk2.cc/' },
         { title: '推特', link: 'https://twitter.com/amzrk2' },

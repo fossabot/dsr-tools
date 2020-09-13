@@ -1,7 +1,7 @@
 <template>
   <v-container fluid class="drawer-logo">
     <v-avatar class="my-10" height="120px" width="120px">
-      <img :src="CDN('./home/dsrca_head.webp')" />
+      <img :src="CDN('./dsrca/home/dsrca_head.webp')" />
     </v-avatar>
   </v-container>
 </template>

@@ -1,5 +1,5 @@
 export default {
-  getLS: key => {
+  getLS: (key) => {
     try {
       return localStorage.getItem(key);
     } catch (e) {
@@ -13,7 +13,7 @@ export default {
       console.error(e);
     }
   },
-  getSS: key => {
+  getSS: (key) => {
     try {
       return sessionStorage.getItem(key);
     } catch (e) {

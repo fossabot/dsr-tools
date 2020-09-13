@@ -14,7 +14,11 @@ export default {
     {
       path: '/game/ffxiv/',
       component: () => import(/* webpackChunkName: "ffxiv" */ '@/views/game/FFXIV.vue'),
-      meta: { name: 'FF14 国服狩猎车时间表', short: 'FF14 狩猎时间表', icon: 'mdi-account-supervisor-circle' },
+      meta: {
+        name: 'FF14 国服狩猎车时间表',
+        short: 'FF14 狩猎时间表',
+        icon: 'mdi-account-supervisor-circle',
+      },
     },
   ],
 };

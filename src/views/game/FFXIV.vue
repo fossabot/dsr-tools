@@ -125,7 +125,7 @@ export default {
   methods: {
     async fetchData() {
       try {
-        const response = await axios.get(CDN('./ffxiv/cn-hunting.json', '1'));
+        const response = await axios.get(CDN('./dsrca/ffxiv/index.json', '1'));
         const res = response.data;
         // Update time
         this.lastUpdate = new Date(res.lastUpdate);
@@ -148,6 +148,9 @@ export default {
       storage.setLS('dsrca_ffxiv-tab', val);
     },
   },
+  /**
+   * Fetch data cache in same session
+   */
   async mounted() {
     const cacheDate = storage.getSS('dsrca_ffxiv-last-update');
     const cacheData = storage.getSS('dsrca_ffxiv-cache');

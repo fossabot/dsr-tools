@@ -2,7 +2,7 @@ export default [
   {
     version: 'v3.2.0',
     date: '2020-09-12',
-    logs: ['优化 Changelog 数据结构', '修复按钮未捕获 Exception'],
+    logs: ['优化 Changelog 数据结构', '修复按钮未捕获 Exception', 'CDN 数据结构更新'],
     active: true,
   },
   {
