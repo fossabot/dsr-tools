@@ -12,10 +12,5 @@ export default new Vuetify({
         secondary: '#3f4551', // https://irocore.com/konnezu/
         info: '#8f82bc', // https://irocore.com/fujimurasaki/
       },
-    },
-  },
-  lang: {
-    locales: { zhHans },
-    current: 'zh-Hans',
-  },
+      },
 });
