@@ -12,6 +12,9 @@
     </v-carousel>
     <v-container class="px-5">
       <v-row>
+        <v-alert class="alert" type="info" icon="mdi-alert" dense>{{ alert }}</v-alert>
+      </v-row>
+      <v-row>
         <v-col cols="12" sm="5">
           <v-card class="mx-auto">
             <v-card-title class="primary white--text">
@@ -22,7 +25,7 @@
                 <v-timeline-item
                   v-for="(item, index) of versions"
                   :key="item"
-                  :color="index===0?'info':'primary'"
+                  :color="index === 0 ? 'info' : 'primary'"
                   small
                 >
                   <span class="version-items grey--text text--darken-4">{{ item }}</span>
@@ -46,12 +49,15 @@
                 </v-list-item>
                 <v-divider></v-divider>
                 <v-subheader>下载地址</v-subheader>
-                <v-list-item v-for="item of downloads" :key="item.name">
+                <v-list-item>
                   <v-list-item-content>
-                    <v-list-item-title>
-                      <v-btn large color="primary">{{ item.name }}</v-btn>
-                      <span class="ex-code" v-if="item.code">-&nbsp;提取码：{{ item.code }}</span>
-                    </v-list-item-title>
+                    <div class="download">
+                      <div class="download-item" v-for="item of downloads" :key="item.code">
+                        <v-btn large color="primary" :href="item.link" target="_blank">
+                          {{ item.name }}&nbsp;-&nbsp;提取码:{{ item.code }}
+                        </v-btn>
+                      </div>
+                    </div>
                   </v-list-item-content>
                 </v-list-item>
               </v-list>
@@ -73,7 +79,7 @@ export default {
     CDN,
   },
   data() {
-    return { loading: true, slides: [], versions: [], modList: [], downloads: [] };
+    return { loading: true, slides: [], versions: [], modList: [], downloads: [], alert: '' };
   },
   async mounted() {
     try {
@@ -83,6 +89,7 @@ export default {
       res.versions.length && (this.versions = res.versions);
       res.modList.length && (this.modList = res.modList);
       res.downloads.length && (this.downloads = res.downloads);
+      res.alert.length && (this.alert = res.alert);
       this.loading = false;
     } catch (e) {
       console.error('[DSRCA]', e);
@@ -114,12 +121,29 @@ export default {
 
 .version-card,
 .version-items {
-  height: 500px;
+  height: 600px;
 }
 
 @media screen and (max-width: $responsive-width) {
   .version-card {
     height: 160px;
   }
+}
+
+.download {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .download-item {
+    margin: 0.25rem;
+    flex: 0 1 auto;
+  }
+}
+
+.alert {
+  margin: 12px;
+  width: 100%;
 }
 </style>
