@@ -21,7 +21,6 @@ const routes = [
     },
   },
   game,
-  project,
   about,
   {
     path: '/temp/',

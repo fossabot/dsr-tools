@@ -1,5 +1,11 @@
 export default [
   {
+    version: 'v3.2.1',
+    date: '2020-09-23',
+    logs: ['移除部分路由页面'],
+    active: true,
+  },
+  {
     version: 'v3.2.0',
     date: '2020-09-12',
     logs: [
@@ -9,7 +15,6 @@ export default [
       'CDN 数据结构更新',
       '修复 Lazyload 占位问题',
     ],
-    active: true,
   },
   {
     version: 'v3.1.1',
