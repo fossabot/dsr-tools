@@ -1,7 +1,6 @@
 import Home from '@/views/Home.vue';
 import game from './game';
 import about from './about';
-import project from './project';
 
 const routes = [
   {

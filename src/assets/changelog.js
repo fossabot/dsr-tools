@@ -2,7 +2,7 @@ export default [
   {
     version: 'v3.2.1',
     date: '2020-09-23',
-    logs: ['移除部分路由页面'],
+    logs: ['移除部分路由页面', '修复 Minecraft 模块部分样式'],
     active: true,
   },
   {

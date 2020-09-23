@@ -109,7 +109,17 @@ export default {
 }
 
 .version-card {
-  height: 485px;
   overflow: auto;
+}
+
+.version-card,
+.version-items {
+  height: 500px;
+}
+
+@media screen and (max-width: $responsive-width) {
+  .version-card {
+    height: 160px;
+  }
 }
 </style>
