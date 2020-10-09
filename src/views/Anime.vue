@@ -9,10 +9,10 @@
     </v-overlay>
     <div class="content" v-if="status">
       <div class="day" v-for="date of animeData" :key="date.weekday.id">
-        <div :class="['date', {'today': today === date.weekday.cn}]">{{ date.weekday.cn }}</div>
+        <div :class="['date', { today: today === date.weekday.cn }]">{{ date.weekday.cn }}</div>
         <a v-for="item of date.items" :key="item.id" :href="item.url | filtHttps" target="_blank">
           <div class="anime">
-            <img class="anime-img" :src="item.images" />
+            <img v-if="item.images" class="anime-img" :src="item.images" />
             <div class="anime-name">
               <div class="name-zh">{{ item.name_cn }}</div>
               <div class="name-ja">{{ item.name }}</div>
@@ -29,6 +29,9 @@
 import axios from 'axios';
 import CDN_OSS_SUBJECT from '../plugins/bangumi/imageCDN';
 import storage from '../plugins/storage';
+
+const HASH_CDN = 'https://cdn.jsdelivr.net/gh/czy0729/Bangumi-OSS@master/hash/subject.json';
+const BGM_CDN = 'https://worker.amzrk2.cc/bgm/calendar';
 
 export default {
   name: 'Anime',
@@ -87,11 +90,12 @@ export default {
     },
   },
   methods: {
+    /**
+     * 获取 CDN hash
+     */
     async fetchHash() {
       try {
-        const hash = await axios.get(
-          'https://cdn.jsdelivr.net/gh/czy0729/Bangumi-OSS@master/hash/subject.json'
-        );
+        const hash = await axios.get(HASH_CDN);
         this.cdnHash = hash.data;
       } catch (e) {
         console.error(e);
@@ -99,7 +103,8 @@ export default {
     },
     async fetchData() {
       try {
-        const res = await axios.get('https://worker.amzrk2.cc/bgm/calendar');
+        const res = await axios.get(BGM_CDN);
+        // 补全 rating 数据
         res.data.forEach((val) => {
           val.items.forEach((val) => {
             if (!val.rating) {
@@ -114,13 +119,23 @@ export default {
     },
     async applyCDN() {
       await Promise.all([this.fetchHash(), this.fetchData()]);
+      // 替换 CDN 图片
       this.animeData.forEach((val) => {
         val.items.forEach((val) => {
-          const image = CDN_OSS_SUBJECT(val.images.common.replace(/^http/, 'https'), this.cdnHash);
-          val.images = image;
+          // api 返回图片类型判断
+          if (val.images) {
+            if (typeof val.images.common === 'string') {
+              const image = CDN_OSS_SUBJECT(val.images.common, this.cdnHash);
+              val.images = image;
+            } else if (typeof val.images === 'string') {
+              const image = CDN_OSS_SUBJECT(val.images, this.cdnHash);
+              val.images = image;
+            } else {
+              delete val.images;
+            }
+          }
         });
       });
-      this.status = true;
     },
     storeCache() {
       storage.setLS('dsrca_anime-cache', JSON.stringify(this.animeData));
@@ -143,10 +158,12 @@ export default {
         }
       }
       await this.applyCDN();
+      this.status = true;
       this.storeCache();
     } catch (e) {
       console.error(e);
       await this.applyCDN();
+      this.status = true;
       this.storeCache();
     }
   },

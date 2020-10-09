@@ -62,7 +62,8 @@ const CDN_OSS_SUBJECT = (src, HASH_SUBJECT) => {
   }
 
   subjectCache[src] = src;
-  return src;
+  // 确保 https 返回
+  return src.replace('http://', 'https://');
 };
 
 export default CDN_OSS_SUBJECT;
