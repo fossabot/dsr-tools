@@ -43,10 +43,14 @@ function validatePath(pathname) {
  * @param {Request} request - 源请求
  * @param {String} origin - 源 origin
  * @param {String} pathname - 源请求解析出的正确 pathname
+ * @param {URLSearchParams} searchParams - 源请求的 searchParams
  */
-async function handleRequest(request, origin, pathname) {
+async function handleRequest(request, origin, pathname, searchParams) {
   const apiUrl = new URL(API_URL); // 构建一个新的 URL 对象 `api.bgm.tv/`
   apiUrl.pathname = pathname; // 设置正确的 pathname
+  for (const [key, value] of searchParams) {
+    apiUrl.searchParams.append(key, value);
+  } // 迁移正确的 searchParams
   request = new Request(apiUrl, request); // 覆盖源 request
   request.headers.set('Origin', apiUrl.origin); // 伪装 Origin
   let response = await fetch(request); // 获取响应
@@ -62,11 +66,12 @@ addEventListener('fetch', (event) => {
   const url = new URL(request.url);
   const origin = request.headers.get('Origin');
   const pathname = url.pathname;
+  const searchParams = url.searchParams;
   // 验证和解析
   const validOrigin = validateOrigin(origin);
   const validPath = validatePath(pathname);
   if (validOrigin && validPath) {
-    event.respondWith(handleRequest(request, origin, validPath));
+    event.respondWith(handleRequest(request, origin, validPath, searchParams));
   } else {
     const response = new Response('[BGM API Proxy] Request not allowed', { status: 403 });
     event.respondWith(response);
