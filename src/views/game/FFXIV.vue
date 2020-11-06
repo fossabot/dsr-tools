@@ -32,7 +32,11 @@
         </v-container>
       </v-tab-item>
 
-      <v-tab-item v-for="(area, index) of data" :key="`tab-${index+1}`" :value="`tab-${index+1}`">
+      <v-tab-item
+        v-for="(area, index) of data"
+        :key="`tab-${index + 1}`"
+        :value="`tab-${index + 1}`"
+      >
         <div>
           <span class="table-title">5.X 狩猎车列表</span>
           <v-data-table

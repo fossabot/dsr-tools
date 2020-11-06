@@ -3,7 +3,7 @@
     <template v-for="route of routes">
       <!-- 若无子路由 -->
       <v-list-item
-        v-if="!route.children&&!route.meta.hide"
+        v-if="!route.children && !route.meta.hide"
         :key="route.name"
         :class="isRouteActive(route.path)"
         @click="navigateTo(route)"
@@ -22,7 +22,7 @@
       </v-list-item>
       <!-- 若有子路由 -->
       <v-list-group
-        v-else-if="route.children&&!route.meta.hide"
+        v-else-if="route.children && !route.meta.hide"
         :key="route.name"
         no-action
         :value="isGroupActive(route.path)"

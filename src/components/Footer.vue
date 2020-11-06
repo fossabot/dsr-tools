@@ -1,5 +1,5 @@
 <template>
-  <v-footer absolute color="primary" dark style="height: 50px;">
+  <v-footer absolute color="primary" dark style="height: 50px">
     <v-container class="author text-center ma-0 pa-0" fluid>
       <v-icon small>mdi-copyright</v-icon>
       <span>2019-{{ new Date().getFullYear() }}</span>

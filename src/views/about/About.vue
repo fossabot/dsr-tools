@@ -6,7 +6,7 @@
         <v-card class="mx-4">
           <v-list-item>
             <v-list-item-avatar>
-              <img :src="CDN('./amzrk2/kitashirakawa_tamako_256p.jpg')" />
+              <img :src="CDN('./amzrk2/wk_256p.webp')" />
             </v-list-item-avatar>
             <v-list-item-content>
               <v-list-item-title class="headline">{{ name }}</v-list-item-title>
@@ -14,7 +14,7 @@
             </v-list-item-content>
           </v-list-item>
           <div class="sub-image">
-            <v-img :src="CDN('./dsrca/about/82576224_p0.jpg')"></v-img>
+            <v-img :src="CDN('./dsrca/about/mozilla_960p.jpg')"></v-img>
           </div>
           <v-card-text class="text-center pb-0">{{ imageCopy }}</v-card-text>
           <v-card-actions>
@@ -26,7 +26,9 @@
               :key="item.link"
               :href="item.link"
               target="_blank"
-            >{{ item.title }}</v-btn>
+            >
+              {{ item.title }}
+            </v-btn>
             <v-spacer></v-spacer>
           </v-card-actions>
         </v-card>
@@ -87,8 +89,8 @@ export default {
   data() {
     return {
       name: 'DSRKafuU',
-      sub: 'かふうです',
-      imageCopy: 'Author: かの - Pixiv ID: 82576224',
+      sub: '是卡夫',
+      imageCopy: 'Internet for people, not profit.',
       personalLinks: [
         { title: '个人页面', link: 'https://amzrk2.cc/' },
         { title: '推特', link: 'https://twitter.com/amzrk2' },

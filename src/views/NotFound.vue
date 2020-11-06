@@ -3,9 +3,7 @@
     <v-row align="center" justify="center">
       <v-col class="text-center" cols="12">
         <h1 class="display-1 mb-4">404 NOT FOUND</h1>
-        <h4 class="subheading">
-          <span v-text="timer"></span> 秒后自动返回首页
-        </h4>
+        <h4 class="subheading"><span v-text="timer"></span> 秒后自动返回首页</h4>
         <v-btn class="text-trans ma-5" large @click="backHome">返回首页</v-btn>
       </v-col>
     </v-row>

@@ -5,13 +5,9 @@
         <v-col offset="1" offset-md="2">
           <h1 class="text-trans text-h3 text-md-h2 text-no-wrap mb-4 ml-1">{{ title }}</h1>
           <template v-for="link of titleLinks">
-            <v-btn
-              class="text-trans ma-2"
-              large
-              :href="link.src"
-              target="_blank"
-              :key="link.src"
-            >{{ link.name }}</v-btn>
+            <v-btn class="text-trans ma-2" large :href="link.src" target="_blank" :key="link.src">
+              {{ link.name }}
+            </v-btn>
           </template>
         </v-col>
       </v-row>

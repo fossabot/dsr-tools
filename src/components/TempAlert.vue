@@ -9,7 +9,9 @@
     dense
   >
     {{ info }}
-    <v-btn color="white" class="text-error ml-2" small @click="$router.push('/temp/')">查看详情</v-btn>
+    <v-btn color="white" class="text-error ml-2" small @click="$router.push('/temp/')"
+      >查看详情</v-btn
+    >
   </v-alert>
 </template>
 

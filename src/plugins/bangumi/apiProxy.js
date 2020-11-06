@@ -11,14 +11,14 @@ const ALLOWED_ORIGIN = [
  * @param {String} origin
  */
 function validateOrigin(origin) {
-  if (origin && origin.includes('https')) {
+  if (origin) {
     for (let i = 0; i < ALLOWED_ORIGIN.length; i++) {
       if (ALLOWED_ORIGIN[i].exec(origin)) {
         return true; // 通过
       }
     }
   }
-  return false; // 拒绝所有非 CORS 请求和非 SSL 请求
+  return false; // 拒绝所有非 CORS 请求
 }
 
 /**

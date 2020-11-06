@@ -1,9 +1,14 @@
 export default [
   {
+    version: 'v3.2.4',
+    date: '2020-11-06',
+    logs: ['修复 CDN 路径问题'],
+    active: true,
+  },
+  {
     version: 'v3.2.2',
     date: '2020-10-09',
     logs: ['修复本季番组页面无图片错误'],
-    active: true,
   },
   {
     version: 'v3.2.1',

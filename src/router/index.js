@@ -29,7 +29,6 @@ router.beforeEach((to, from, next) => {
   } else {
     document.title = 'DSRCA';
   }
-
   next();
 });
 
