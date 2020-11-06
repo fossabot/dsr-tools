@@ -18,4 +18,4 @@ This project and all contributors shall not be responsible for any dispute or lo
 
 This project is released under the `Apache License 2.0`, for more information read the [License](https://github.com/amzrk2/hugo-theme-fuji/blob/master/LICENSE).
 
-> © 2019-2020 DSRKafuU(amzrk2) [Twitter @amzrk2](https://twitter.com/amzrk2) [GitHub @amzrk2](https://github.com/amzrk2)
+> Copyright © 2019-present DSRKafuU <amzrk2.cc>
