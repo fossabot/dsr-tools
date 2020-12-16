@@ -133,6 +133,7 @@ export default {
         const res = response.data;
         // Update time
         this.lastUpdate = new Date(res.lastUpdate);
+        storage.setSS('dsr-tools_ffxiv-last-update', this.lastUpdate.getTime());
         // Data
         for (let area in res.huntingData) {
           let areaData = res.huntingData[area];
@@ -155,8 +156,9 @@ export default {
    * Fetch data cache in same session
    */
   async mounted() {
+    const cacheDate = storage.getSS('dsr-tools_ffxiv-last-update');
     const cacheData = storage.getSS('dsr-tools_ffxiv-cache');
-    if (cacheData) {
+    if (cacheDate && cacheData) {
       // If data cache founded
       this.lastUpdate = new Date(Number.parseInt(cacheDate));
       this.data = JSON.parse(cacheData);
