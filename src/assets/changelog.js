@@ -1,9 +1,14 @@
 export default [
   {
+    version: 'v3.2.5',
+    date: '2020-12-16',
+    logs: ['修复 CDN 资源缓存更新错误'],
+    active: true,
+  },
+  {
     version: 'v3.2.4',
     date: '2020-11-06',
     logs: ['修复 CDN 路径问题'],
-    active: true,
   },
   {
     version: 'v3.2.2',

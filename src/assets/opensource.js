@@ -1,10 +1,5 @@
 export default [
   {
-    title: 'Bangumi-OSS',
-    license: 'UNKNOWN',
-    link: 'https://github.com/czy0729/Bangumi-OSS',
-  },
-  {
     title: 'vue',
     license: 'MIT License',
     link: 'https://github.com/vuejs/vue',

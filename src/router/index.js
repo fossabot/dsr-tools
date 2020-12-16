@@ -25,9 +25,9 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   if (to.meta.name) {
-    document.title = `${to.meta.name} - DSRCA`;
+    document.title = `${to.meta.name} | DSRToolS`;
   } else {
-    document.title = 'DSRCA';
+    document.title = 'DSRToolS';
   }
   next();
 });
