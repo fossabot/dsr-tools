@@ -1,8 +1,8 @@
 export default [
   {
-    version: 'v3.2.5',
+    version: 'v3.3.0',
     date: '2020-12-16',
-    logs: ['修复 CDN 资源缓存更新错误'],
+    logs: ['修复 CDN 资源缓存更新错误', '站点 meta 更新'],
     active: true,
   },
   {

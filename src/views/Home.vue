@@ -32,14 +32,14 @@ export default {
   },
   async mounted() {
     try {
-      const response = await axios.get(CDN('./dsrca/home/index.json'));
+      const response = await axios.get(CDN('./dsr-tools/home/index.json'));
       const res = response.data;
       if (res.title) {
         this.title = res.title;
         this.titleLinks = res.links;
       }
     } catch (e) {
-      console.error('[DSRCA]', e);
+      console.error('[DSRToolS]', e);
     }
   },
 };
@@ -49,12 +49,12 @@ export default {
 .home {
   height: 100%;
 
-  background: url('https://cdn.jsdelivr.net/gh/amzrk2/cdn-stcapi@1/dsrca/home/cover-row.webp')
+  background: url('https://cdn.jsdelivr.net/gh/amzrk2/cdn-stcapi@2/dsr-tools/home/cover-row.webp')
     no-repeat center center fixed;
   background-size: cover;
 
   @media screen and (max-width: 900px) {
-    background: url('https://cdn.jsdelivr.net/gh/amzrk2/cdn-stcapi@1/dsrca/home/cover-col.webp')
+    background: url('https://cdn.jsdelivr.net/gh/amzrk2/cdn-stcapi@2/dsr-tools/home/cover-col.webp')
       no-repeat center center fixed;
     background-size: cover;
   }

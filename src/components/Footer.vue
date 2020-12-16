@@ -3,7 +3,7 @@
     <v-container class="author text-center ma-0 pa-0" fluid>
       <v-icon small>mdi-copyright</v-icon>
       <span>2019-{{ new Date().getFullYear() }}</span>
-      <a href="https://amzrk2.cc/" target="_blank">DSRCA</a>
+      <a href="https://amzrk2.cc/" target="_blank">DSRKafuU</a>
     </v-container>
     <v-container class="version text-center ma-0 pa-0" fluid>
       <span>DSRToolS {{ changelog[0].version }}</span>

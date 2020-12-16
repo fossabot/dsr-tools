@@ -138,19 +138,19 @@ export default {
       });
     },
     storeCache() {
-      storage.setLS('dsrca_anime-cache', JSON.stringify(this.animeData));
+      storage.setLS('dsr-tools_anime-cache', JSON.stringify(this.animeData));
       const date = new Date();
       const time = date.getTime();
-      storage.setLS('dsrca_anime-cache-date', JSON.stringify(time));
+      storage.setLS('dsr-tools_anime-cache-date', JSON.stringify(time));
     },
   },
   async mounted() {
     const date = new Date();
     const time = date.getTime();
     try {
-      const cacheTime = JSON.parse(storage.getLS('dsrca_anime-cache-date'));
+      const cacheTime = JSON.parse(storage.getLS('dsr-tools_anime-cache-date'));
       if (time - cacheTime < 86400000) {
-        const cache = JSON.parse(storage.getLS('dsrca_anime-cache'));
+        const cache = JSON.parse(storage.getLS('dsr-tools_anime-cache'));
         if (cache.length > 1) {
           this.animeData = cache;
           this.status = true;

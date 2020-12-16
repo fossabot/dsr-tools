@@ -1,6 +1,6 @@
 const path = require('path');
 
-function CDN(sourcePath, version = '1.4') {
+function CDN(sourcePath, version = '2.0') {
   const baseURL = `https://cdn.jsdelivr.net/gh/amzrk2/cdn-stcapi@${version}`;
 
   if (process.env.NODE_ENV === 'production') {

@@ -83,7 +83,7 @@ export default {
       loading: true,
       data: [],
       lastUpdate: new Date(0),
-      tab: storage.getLS('dsrca_ffxiv-tab') || 'tab-0',
+      tab: storage.getLS('dsr-tools_ffxiv-tab') || 'tab-0',
       headers: [
         { text: '服务器', value: 'server', align: 'center' },
         { text: '早车', value: 'timeTable[0]', align: 'center' },
@@ -129,40 +129,38 @@ export default {
   methods: {
     async fetchData() {
       try {
-        const response = await axios.get(CDN('./dsrca/ffxiv/index.json', '1'));
+        const response = await axios.get(CDN('./dsr-tools/ffxiv/index.json'));
         const res = response.data;
         // Update time
         this.lastUpdate = new Date(res.lastUpdate);
-        storage.setSS('dsrca_ffxiv-last-update', this.lastUpdate.getTime());
         // Data
         for (let area in res.huntingData) {
           let areaData = res.huntingData[area];
           this.data.push(areaData);
         }
-        storage.setSS('dsrca_ffxiv-cache', JSON.stringify(this.data));
-        console.log('[DSRCA] Latest data loaded');
+        storage.setSS('dsr-tools_ffxiv-cache', JSON.stringify(this.data));
+        console.log('[DSRToolS] Latest data loaded');
         setTimeout(() => {
           this.loading = false;
         }, 500);
       } catch (e) {
-        console.error('[DSRCA]', e);
+        console.error('[DSRToolS]', e);
       }
     },
     handleTabChange(val) {
-      storage.setLS('dsrca_ffxiv-tab', val);
+      storage.setLS('dsr-tools_ffxiv-tab', val);
     },
   },
   /**
    * Fetch data cache in same session
    */
   async mounted() {
-    const cacheDate = storage.getSS('dsrca_ffxiv-last-update');
-    const cacheData = storage.getSS('dsrca_ffxiv-cache');
-    if (cacheDate && cacheData) {
+    const cacheData = storage.getSS('dsr-tools_ffxiv-cache');
+    if (cacheData) {
       // If data cache founded
       this.lastUpdate = new Date(Number.parseInt(cacheDate));
       this.data = JSON.parse(cacheData);
-      console.log('[DSRCA] Data cache loaded');
+      console.log('[DSRToolS] Data cache loaded');
       setTimeout(() => {
         this.loading = false;
       }, 500);
