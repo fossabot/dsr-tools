@@ -1,9 +1,9 @@
 {
-  "name": "dsrca-source",
+  "name": "dsr-tools-source",
   "version": "3.3.0",
   "private": true,
   "scripts": {
-    "start": "vue-cli-service serve",
+    "dev": "vue-cli-service serve",
     "build": "vue-cli-service build --modern",
     "lint": "vue-cli-service lint"
   },
