@@ -6,7 +6,7 @@
         <v-card class="mx-4">
           <v-list-item>
             <v-list-item-avatar>
-              <img :src="CDN('./dsr-ca/wk_256p.webp')" />
+              <img :src="CDN('images/avatars/amzrk2_256p.jpg', 'cdn', '1')" />
             </v-list-item-avatar>
             <v-list-item-content>
               <v-list-item-title class="headline">{{ name }}</v-list-item-title>
@@ -14,7 +14,7 @@
             </v-list-item-content>
           </v-list-item>
           <div class="sub-image">
-            <v-img :src="CDN('./dsr-tools/about/mozilla_960p.jpg')"></v-img>
+            <v-img :src="CDN('images/banners/mozilla_960p.jpg', 'cdn', '1')"></v-img>
           </div>
           <v-card-text class="text-center pb-0">{{ imageCopy }}</v-card-text>
           <v-card-actions>
