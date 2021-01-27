@@ -94,7 +94,6 @@ export default {
         { text: '路线', value: 'route', align: 'center' },
       ],
       info: [
-        { title: '更新频率', text: '狩猎车相关数据为手动更新, 约 10-15 天同步一次', link: false },
         {
           title: '数据不刷新问题',
           text: '数据更新后 CDN 缓存需要约 10-15 分钟全球刷新, 若出现问题则最高需要 12 小时',
