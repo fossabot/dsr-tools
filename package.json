@@ -1,6 +1,6 @@
 {
   "name": "dsr-tools-source",
-  "version": "3.3.0",
+  "version": "3.3.1",
   "private": true,
   "scripts": {
     "dev": "vue-cli-service serve",
@@ -10,20 +10,20 @@
   "dependencies": {
     "axios": "~0.21.1",
     "vue": "~2.6.12",
-    "vue-router": "~3.4.9",
-    "vuetify": "~2.4.2",
-    "vuex": "~3.6.0"
+    "vue-router": "~3.5.1",
+    "vuetify": "~2.4.3",
+    "vuex": "~3.6.2"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.10",
-    "@vue/cli-plugin-router": "~4.5.10",
-    "@vue/cli-plugin-vuex": "~4.5.10",
-    "@vue/cli-service": "~4.5.10",
+    "@vue/cli-plugin-babel": "~4.5.11",
+    "@vue/cli-plugin-router": "~4.5.11",
+    "@vue/cli-plugin-vuex": "~4.5.11",
+    "@vue/cli-service": "~4.5.11",
     "prettier": "^2.2.1",
-    "sass": "^1.32.2",
-    "sass-loader": "^10.1.0",
-    "vue-cli-plugin-vuetify": "^2.0.9",
+    "sass": "^1.32.5",
+    "sass-loader": "^10.1.1",
+    "vue-cli-plugin-vuetify": "^2.1.0",
     "vue-template-compiler": "~2.6.12",
-    "vuetify-loader": "^1.6.0"
+    "vuetify-loader": "^1.7.1"
   }
 }
