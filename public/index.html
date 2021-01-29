@@ -3,11 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" />
-    <link rel="apple-touch-icon" sizes="180x180" href="<%= BASE_URL %>favicon/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="<%= BASE_URL %>favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="<%= BASE_URL %>favicon/favicon-16x16.png" />
-    <link rel="shortcut icon" href="<%= BASE_URL %>favicon/favicon.ico" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"
+    />
+    <link rel="apple-touch-icon" sizes="180x180" href="<%= BASE_URL %>apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="<%= BASE_URL %>favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="<%= BASE_URL %>favicon-16x16.png" />
+    <link rel="shortcut icon" href="<%= BASE_URL %>favicon.ico" />
     <title>DSRToolS</title>
     <meta name="description" content="DSR 小工具资源站。" />
     <meta property="og:type" content="website" />
@@ -22,13 +25,16 @@
     <meta property="twitter:image" content="<%= BASE_URL %>og.png" />
     <meta name="baidu-site-verification" content="HrfWai4YTd" />
     <!-- mdi -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@5.3.45/css/materialdesignicons.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@5.3.45/css/materialdesignicons.min.css"
+    />
     <!-- ga -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N2YVWKXHER"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){
-         dataLayer.push(arguments);
+      function gtag() {
+        dataLayer.push(arguments);
       }
       gtag('js', new Date());
       gtag('config', 'G-N2YVWKXHER');
@@ -37,9 +43,21 @@
   <body>
     <noscript>
       <strong>DSRToolS 无法在没有 JavaScript 的环境中正常运行</strong>
-      <br /><strong>请检查您的浏览器设置</strong>
+      <br />
+      <strong>请检查您的浏览器设置</strong>
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <script type="text/javascript">
+      window.$crisp = [];
+      window.CRISP_WEBSITE_ID = 'd3750a6b-c763-4252-8ec7-bce6050774f6';
+      (function () {
+        d = document;
+        s = d.createElement('script');
+        s.src = 'https://client.crisp.chat/l.js';
+        s.async = 1;
+        d.getElementsByTagName('head')[0].appendChild(s);
+      })();
+    </script>
   </body>
 </html>
