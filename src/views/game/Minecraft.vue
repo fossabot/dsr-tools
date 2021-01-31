@@ -128,7 +128,7 @@ export default {
 
 @media screen and (max-width: $responsive-width) {
   .version-card {
-    height: 160px;
+    height: 400px;
   }
 }
 
