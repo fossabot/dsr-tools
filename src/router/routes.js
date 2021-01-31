@@ -11,8 +11,14 @@ const routes = [
       icon: 'mdi-home',
     },
   },
+  // old route scheme/domain redirect
   {
-    path: '/anime/',
+    path: '/ffxiv*',
+    redirect: '/game/ffxiv',
+    meta: { hide: true },
+  },
+  {
+    path: '/anime',
     component: () => import(/* webpackChunkName: "temp" */ '@/views/Anime.vue'),
     meta: {
       name: '本季番组',
@@ -22,7 +28,7 @@ const routes = [
   game,
   about,
   {
-    path: '/temp/',
+    path: '/temp',
     component: () => import(/* webpackChunkName: "temp" */ '@/views/Temp.vue'),
     meta: {
       name: '临时信息发布',
@@ -30,7 +36,7 @@ const routes = [
     },
   },
   {
-    path: '/legacy/',
+    path: '/legacy',
     meta: {
       name: '访问旧版',
       icon: 'mdi-folder-remove',
@@ -38,7 +44,7 @@ const routes = [
     },
   },
   {
-    path: '/404/',
+    path: '/404',
     component: () => import(/* webpackChunkName: "notfound" */ '@/views/NotFound.vue'),
     meta: {
       name: '404 NOT FOUND',
@@ -47,7 +53,7 @@ const routes = [
   },
   {
     path: '/*',
-    redirect: '/404/',
+    redirect: '/404',
     meta: {
       hide: true,
     },

@@ -24,12 +24,23 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
+  // change title
   if (to.meta.name) {
     document.title = `${to.meta.name} | DSRToolS`;
   } else {
     document.title = 'DSRToolS';
   }
-  next();
+  // remove trailing slash
+  if (to.path !== '/' && /\/$/gi.exec(to.path)) {
+    const exp = /^(.*)\/$/gi.exec(to.path);
+    if (exp && exp[1]) {
+      next(exp[1]);
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
 });
 
 export default router;
