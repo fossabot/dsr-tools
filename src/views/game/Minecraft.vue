@@ -10,11 +10,43 @@
         </div>
       </v-carousel-item>
     </v-carousel>
-    <v-container class="px-5">
+    <v-container class="px-5 py-5">
       <v-row>
-        <v-alert class="alert" type="info" icon="mdi-alert" dense>{{ alert }}</v-alert>
+        <v-alert class="alert mt-3" type="info" icon="mdi-alert" dense>{{ alert }}</v-alert>
       </v-row>
       <v-row>
+        <v-col cols="12" sm="7">
+          <v-card class="mx-auto">
+            <v-card-title class="primary white--text">
+              <span class="title">整合包详情</span>
+            </v-card-title>
+            <v-card-text class="version-card version-card-detail">
+              <v-list class="detail-wrapper">
+                <v-subheader>模组列表</v-subheader>
+                <v-list-item v-for="item of modList" :key="item.name">
+                  <v-list-item-content>
+                    <v-list-item-title>{{ item.name }} - {{ item.desc }}</v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+              </v-list>
+              <v-list class="detail-wrapper">
+                <v-divider></v-divider>
+                <v-subheader>下载地址</v-subheader>
+                <v-list-item>
+                  <v-list-item-content>
+                    <div class="download">
+                      <div class="download-item" v-for="item of downloads" :key="item.code">
+                        <v-btn large color="primary" :href="item.link" target="_blank">
+                          {{ item.name }}&nbsp;-&nbsp;{{ item.code }}
+                        </v-btn>
+                      </div>
+                    </div>
+                  </v-list-item-content>
+                </v-list-item>
+              </v-list>
+            </v-card-text>
+          </v-card>
+        </v-col>
         <v-col cols="12" sm="5">
           <v-card class="mx-auto">
             <v-card-title class="primary white--text">
@@ -31,36 +63,6 @@
                   <span class="version-items grey--text text--darken-4">{{ item }}</span>
                 </v-timeline-item>
               </v-timeline>
-            </v-card-text>
-          </v-card>
-        </v-col>
-        <v-col cols="12" sm="7">
-          <v-card class="mx-auto">
-            <v-card-title class="primary white--text">
-              <span class="title">整合包详情</span>
-            </v-card-title>
-            <v-card-text class="version-card">
-              <v-list>
-                <v-subheader>模组列表</v-subheader>
-                <v-list-item v-for="item of modList" :key="item.name">
-                  <v-list-item-content>
-                    <v-list-item-title>{{ item.name }} - {{ item.desc }}</v-list-item-title>
-                  </v-list-item-content>
-                </v-list-item>
-                <v-divider></v-divider>
-                <v-subheader>下载地址</v-subheader>
-                <v-list-item>
-                  <v-list-item-content>
-                    <div class="download">
-                      <div class="download-item" v-for="item of downloads" :key="item.code">
-                        <v-btn large color="primary" :href="item.link" target="_blank">
-                          {{ item.name }}&nbsp;-&nbsp;提取码:{{ item.code }}
-                        </v-btn>
-                      </div>
-                    </div>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-list>
             </v-card-text>
           </v-card>
         </v-col>
@@ -121,7 +123,7 @@ export default {
 
 .version-card,
 .version-items {
-  height: 600px;
+  height: 400px;
 }
 
 @media screen and (max-width: $responsive-width) {
@@ -132,7 +134,6 @@ export default {
 
 .download {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
 
@@ -145,5 +146,21 @@ export default {
 .alert {
   margin: 12px;
   width: 100%;
+}
+
+.version-card-detail {
+  display: flex;
+  flex-direction: column;
+
+  .detail-wrapper {
+    &:first-child {
+      flex: 1 1 auto;
+      overflow-y: auto;
+    }
+
+    &:last-child {
+      flex: 0 0 auto;
+    }
+  }
 }
 </style>
