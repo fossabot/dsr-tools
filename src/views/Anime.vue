@@ -31,7 +31,7 @@ import CDN_OSS_SUBJECT from '../plugins/bangumi/imageCDN';
 import storage from '../plugins/storage';
 
 const HASH_CDN = 'https://cdn.jsdelivr.net/gh/czy0729/Bangumi-OSS@master/hash/subject.json';
-const BGM_CDN = 'https://worker.amzrk2.cc/bgm/calendar';
+const BGM_CDN = 'https://workers.amzrk2.cc/bgm/calendar';
 
 export default {
   name: 'Anime',
