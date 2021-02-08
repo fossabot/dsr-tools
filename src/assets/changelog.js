@@ -1,8 +1,8 @@
 export default [
   {
-    version: 'v3.4.0',
+    version: 'v3.3.2',
     date: '2021-02-08',
-    logs: [''],
+    logs: ['常规依赖更新', '切换至使用 SVG 图标'],
     active: true,
   },
   {
