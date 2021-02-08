@@ -1,9 +1,14 @@
 export default [
   {
+    version: 'v3.4.0',
+    date: '2021-02-08',
+    logs: [''],
+    active: true,
+  },
+  {
     version: 'v3.3.1',
     date: '2021-01-31',
     logs: ['修复 BGM 代理 API', '微调 Minecraft 模块样式', '更新路由路径'],
-    active: true,
   },
   {
     version: 'v3.3.0',

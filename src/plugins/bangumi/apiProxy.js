@@ -1,7 +1,7 @@
 const API_URL = 'https://api.bgm.tv/';
 const API_PATH = /^\/bgm(.*)/;
 const ALLOWED_ORIGIN = [
-  /^https?:\/\/dsrca\.amzrk2\.cc/,
+  /^https?:\/\/tools\.amzrk2\.cc/,
   /^https?:\/\/api-bgm\.amzrk2\.workers\.dev/,
   /^https?:\/\/localhost/,
 ];

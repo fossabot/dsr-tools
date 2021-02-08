@@ -11,12 +11,6 @@ const routes = [
       icon: 'mdi-home',
     },
   },
-  // old route scheme/domain redirect
-  {
-    path: '/ffxiv*',
-    redirect: '/game/ffxiv',
-    meta: { hide: true },
-  },
   {
     path: '/anime',
     component: () => import(/* webpackChunkName: "temp" */ '@/views/Anime.vue'),
@@ -35,12 +29,12 @@ const routes = [
       icon: 'mdi-clipboard-pulse',
     },
   },
+  // old route scheme/domain redirect
   {
-    path: '/legacy',
+    path: '/ffxiv*',
+    redirect: '/game/ffxiv',
     meta: {
-      name: '访问旧版',
-      icon: 'mdi-folder-remove',
-      ext: 'https://dsrca.github.io/',
+      hide: true,
     },
   },
   {
