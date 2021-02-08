@@ -2,7 +2,7 @@ export default [
   {
     version: 'v3.3.2',
     date: '2021-02-08',
-    logs: ['常规依赖更新', '切换至使用 SVG 图标'],
+    logs: ['常规依赖更新', '切换至使用 SVG 图标', '修复番剧模块 API 代理'],
     active: true,
   },
   {
