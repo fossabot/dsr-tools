@@ -1,6 +1,7 @@
 import Home from '@/views/Home.vue';
 import game from './game';
 import about from './about';
+import { mdiHome, mdiTelevisionBox, mdiClipboardPulse } from '@/utils/mdi';
 
 const routes = [
   {
@@ -8,7 +9,7 @@ const routes = [
     component: Home,
     meta: {
       name: '首页',
-      icon: 'mdi-home',
+      icon: mdiHome,
     },
   },
   {
@@ -16,7 +17,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "temp" */ '@/views/Anime.vue'),
     meta: {
       name: '本季番组',
-      icon: 'mdi-television-box',
+      icon: mdiTelevisionBox,
     },
   },
   game,
@@ -26,7 +27,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "temp" */ '@/views/Temp.vue'),
     meta: {
       name: '临时信息发布',
-      icon: 'mdi-clipboard-pulse',
+      icon: mdiClipboardPulse,
     },
   },
   // old route scheme/domain redirect

@@ -1,4 +1,5 @@
 import ChildRouter from '@/views/ChildRouter.vue';
+import { mdiInformation, mdiTimeline, mdiLicense } from '@/utils/mdi';
 
 export default {
   path: '/about',
@@ -6,18 +7,24 @@ export default {
   component: ChildRouter,
   meta: {
     name: '关于本站',
-    icon: 'mdi-information',
+    icon: mdiInformation,
   },
   children: [
     {
       path: '/about/changelog',
       component: () => import(/* webpackChunkName: "about" */ '@/views/about/Changelog.vue'),
-      meta: { name: '更新记录', icon: 'mdi-timeline' },
+      meta: {
+        name: '更新记录',
+        icon: mdiTimeline,
+      },
     },
     {
       path: '/about/site',
       component: () => import(/* webpackChunkName: "about" */ '@/views/about/About.vue'),
-      meta: { name: '站点信息', icon: 'mdi-license' },
+      meta: {
+        name: '站点信息',
+        icon: mdiLicense,
+      },
     },
   ],
 };
