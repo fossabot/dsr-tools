@@ -128,7 +128,7 @@ export default {
   methods: {
     async fetchData() {
       try {
-        const response = await axios.get(CDN('dsr-tools/ffxiv/index.json', 'api', '1'));
+        const response = await axios.get(CDN('dsr-tools/ffxiv/index.json'));
         const res = response.data;
         // Update time
         this.lastUpdate = new Date(res.lastUpdate);

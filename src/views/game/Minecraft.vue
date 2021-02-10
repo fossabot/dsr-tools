@@ -6,7 +6,7 @@
     <v-carousel cycle show-arrows-on-hover height="auto">
       <v-carousel-item v-for="(item, index) in slides" :key="index">
         <div class="image-wrapper">
-          <v-img :src="CDN(`dsr-tools/minecraft/${item}`, 'api', '1')" />
+          <v-img :src="CDN(`dsr-tools/minecraft/${item}`)" />
         </div>
       </v-carousel-item>
     </v-carousel>
@@ -85,7 +85,7 @@ export default {
   },
   async mounted() {
     try {
-      const response = await axios.get(CDN('dsr-tools/minecraft/index.json', 'api', '1'));
+      const response = await axios.get(CDN('dsr-tools/minecraft/index.json'));
       const res = response.data;
       res.slides.length && (this.slides = res.slides);
       res.versions.length && (this.versions = res.versions);

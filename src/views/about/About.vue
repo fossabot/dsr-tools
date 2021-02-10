@@ -6,7 +6,7 @@
         <v-card class="mx-4">
           <v-list-item>
             <v-list-item-avatar>
-              <img :src="CDN('images/avatars/amzrk2_256p.jpg', 'cdn', '1')" />
+              <img :src="CDN('images/avatars/dsrkafuu_256p.jpg', 'cdn', '1.1')" />
             </v-list-item-avatar>
             <v-list-item-content>
               <v-list-item-title class="headline">{{ name }}</v-list-item-title>
@@ -14,7 +14,7 @@
             </v-list-item-content>
           </v-list-item>
           <div class="sub-image">
-            <v-img :src="CDN('images/banners/mozilla_960p.jpg', 'cdn', '1')"></v-img>
+            <v-img :src="CDN('images/banners/mozilla_960p.jpg', 'cdn', '1.1')"></v-img>
           </div>
           <v-card-text class="text-center pb-0">{{ imageCopy }}</v-card-text>
           <v-card-actions>
@@ -89,12 +89,12 @@ export default {
   data() {
     return {
       name: 'DSRKafuU',
-      sub: '是卡夫',
-      imageCopy: 'Internet for people, not profit.',
+      sub: 'dsrkafuu',
+      imageCopy: 'Internet for people, not profit',
       personalLinks: [
-        { title: '个人页面', link: 'https://amzrk2.cc/' },
-        { title: '推特', link: 'https://twitter.com/amzrk2' },
-        { title: 'GitHub', link: 'https://github.com/amzrk2' },
+        { title: '个人页面', link: 'https://dsrkafuu.co/' },
+        { title: '推特', link: 'https://twitter.com/dsrkafuu' },
+        { title: 'GitHub', link: 'https://github.com/dsrkafuu' },
       ],
       statements,
       openSourceProjects,

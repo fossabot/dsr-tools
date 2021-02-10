@@ -1,8 +1,8 @@
 const API_URL = 'https://api.bgm.tv/';
-const API_PATH = /^\/bgm(.*)/;
+const API_PATH = /^\/(.*)/;
 const ALLOWED_ORIGIN = [
-  /^https?:\/\/tools\.amzrk2\.cc/,
-  /^https?:\/\/api-bgm\.amzrk2\.workers\.dev/,
+  /^https?:\/\/tools\.dsrkafuu\.co/,
+  /^https?:\/\/dsr-tools-bgm\.dsrkafuu\.workers\.dev/,
   /^https?:\/\/localhost/,
 ];
 
@@ -28,13 +28,9 @@ function validateOrigin(origin) {
 function validatePath(pathname) {
   const parsedPath = API_PATH.exec(pathname);
   if (parsedPath && parsedPath.length > 1) {
-    if (parsedPath[1] === '') {
-      return '/'; // 这种情况是为了代理根目录 `api.bgm.tv/` => `worker.example.org/bgm/`
-    } else {
-      return parsedPath[1]; // `api.bgm.tv/*` => `worker.example.org/bgm/*`
-    }
+    return `/${parsedPath[1]}`; // `api.bgm.tv/*` => `worker.example.org/*`
   } else {
-    return false; // 若不是对 `/bgm*` 的访问则拒绝
+    return false; // 若不是对 `/*` 的访问则拒绝
   }
 }
 
