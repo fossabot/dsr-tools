@@ -1,5 +1,5 @@
 {
-  "name": "dsr-tools-source",
+  "name": "dsr-tools",
   "version": "3.3.2",
   "private": true,
   "scripts": {
